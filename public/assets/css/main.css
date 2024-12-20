@@ -130,8 +130,8 @@ Description: Gerold - Personal Portfolio HTML5 Template
 /* Correct the path in CSS files */
 @font-face {
     font-family: 'Font Awesome 6 Pro';
-    src: url('../fonts/fa-regular-400.woff2') format('woff2'),
-         url('../fonts/Flaticon.woff') format('woff');
+    src: url('../css/font-awesome-pro.min.css') format('woff2'),
+         url('../css/font-awesome-pro.min.css') format('woff');
     font-weight: 400;
     font-style: normal;
 }
@@ -829,7 +829,7 @@ body.loaded {
 }
 
 .tj-header-area .logo-box {
-	max-width: 60px;
+	max-width: 100px;
 	width: 100%;
 	margin-right: 35px;
 }
@@ -1371,6 +1371,7 @@ body.loaded {
 	-webkit-transition: 0.3s;
 	-o-transition: 0.3s;
 	transition: 0.3s;
+	width: 400px !important;
 }
 
 .hero-image-box img:hover {

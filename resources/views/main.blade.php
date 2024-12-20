@@ -55,7 +55,54 @@
    <link rel="stylesheet" href="{{ asset('assets/css/responsive-3.css') }}" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+   <style>
+   /* Scroll To Top Button */
+.progress-wrap {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 50px;
+   height: 50px;
+   background-color: #007bff; /* Button Background */
+   border-radius: 50%;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+   z-index: 999;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease-in-out;
+}
+
+.progress-wrap.active {
+   opacity: 1;
+   visibility: visible;
+}
+.progress-wrap::after{
+    display: none;
+}
+
+.progress-wrap svg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: rotate(-90deg);
+   stroke: #fff; /* Circle Color */
+   stroke-width: 2px;
+   fill: none;
+   transition: stroke-dashoffset 0.3s ease;
+}
+
+.progress-wrap i {
+   color: #fff; /* Icon Color */
+   font-size: 18px;
+   z-index: 10;
+}
+</style>
 </head>
+
 
 <body class="light-mode">
    <!-- Preloader Area Start -->
@@ -80,10 +127,11 @@
 
    <!-- start: Back To Top -->
    <div class="progress-wrap" id="scrollUp">
-      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-      </svg>
-   </div>
+       <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+       </svg>
+       <i class="fa fa-chevron-up"></i> <!-- Add a Font Awesome Icon -->
+    </div>
    <!-- end: Back To Top -->
 
    <!-- HEADER START -->
@@ -93,7 +141,7 @@
             <div class="col-12 d-flex flex-wrap align-items-center">
                <div class="logo-box">
                   <a href="{{ ('/') }}">
-                     <img src="assets/img/logo/logo-dark.png" alt="" />
+                     <img src="assets/img/logo/logo.png" alt="" />
                   </a>
                </div>
                <div class="header-info-list d-none d-md-inline-block">
@@ -137,7 +185,7 @@
             <div class="col-12 d-flex flex-wrap align-items-center">
                <div class="logo-box">
                   <a href="{{ ('/') }}">
-                     <img src="assets/img/logo/logo-dark.png" alt="" />
+                     <img src="assets/img/logo/logo.png" alt="" />
                   </a>
                </div>
                <div class="header-info-list d-none d-md-inline-block">
@@ -183,7 +231,7 @@
          <div class="row">
             <div class="col-md-12 text-center">
                <div class="footer-logo-box">
-                  <a href="#"><img src="assets/img/logo/logo-dark.png" alt="" /></a>
+                  <a href="#"><img src="assets/img/logo/logo.png" alt="" /></a>
                </div>
                <div class="footer-menu">
                   <nav>
@@ -228,6 +276,20 @@
    <script src="assets/js/validate.min.js"></script>
    <script src="assets/js/meanmenu.js"></script>
    <script src="assets/js/main.js"></script>
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rabrar",
+  "jobTitle": "Web Designer & Developer",
+  "url": "https://yourwebsite.com",
+  "sameAs": [
+    "https://linkedin.com/in/rabrar",
+    "https://github.com/rabrar"
+  ]
+}
+</script>
+
 </body>
 
 </html>

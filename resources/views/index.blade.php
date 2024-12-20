@@ -302,10 +302,10 @@
                <div class="col-md-12">
                   <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
                      <div class="button-group filter-button-group">
-                        <button data-filter="*" class="active">All</button>
-                        <button data-filter=".uxui">UX/UI</button>
-                        <button data-filter=".branding">Branding</button>
-                        <button data-filter=".mobile-app">Apps</button>
+                        <button data-filter="*" class="active">Laravel</button>
+                        <button data-filter=".uxui">WordPress</button>
+                        <!-- <button data-filter=".branding">Branding</button>
+                        <button data-filter=".mobile-app">Apps</button> -->
                         <div class="active-bg"></div>
                      </div>
                   </div>
@@ -317,56 +317,52 @@
                      <!-- Branding Project -->
                      <div class="portfolio-item branding">
                         <div class="image-box">
-                           <img src="assets/img/portfolio/2.jpg" alt="Branding Project" />
+                           <img src="assets\img\portfolio\littile_caruser.JPG" alt="Branding Project" />
                         </div>
                         <div class="content-box">
-                           <h3 class="portfolio-title">Deloitte Branding</h3>
-                           <p>Created a professional and innovative branding strategy for Deloitte, focusing on precision and trust for their global audience.</p>
-                           <p>Technologies Used: HTML, CSS, Bootstrap, JavaScript</p>
+                           <h3 class="portfolio-title">Little Cruisers</h3>
+                           <p>Little Cruisers is a professional website dedicated to providing comprehensive information about cruising experiences in Canada. The website is designed with a clean and user-friendly interface, featuring responsive design for seamless browsing across devices. Developed using HTML, CSS, JavaScript, and powered by PHP for backend functionality, the site ensures smooth navigation and dynamic content delivery. Its visually appealing layout incorporates modern web development practices to deliver an engaging user experience.</p>
                            <i class="bx bx-arrow-to-top"></i>
-                           <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
+                           <button data-mfp-src="#Little-portfolio-wrapper" class="portfolio-link modal-popup"></button>
                         </div>
                      </div>
 
                      <!-- UX/UI Project -->
                      <div class="portfolio-item uxui">
                         <div class="image-box">
-                           <img src="assets/img/portfolio/1.jpg" alt="UX/UI Design Project" />
+                           <img src="assets\img\portfolio\bellaluxurylimos.JPG" alt="UX/UI Design Project" />
                         </div>
                         <div class="content-box">
-                           <h3 class="portfolio-title">New Age Web Design</h3>
-                           <p>Designed a user-friendly and responsive website for New Age, optimizing UX/UI for easy navigation and customer satisfaction.</p>
-                           <p>Technologies Used: HTML, CSS, Bootstrap, JavaScript, WordPress</p>
+                           <h3 class="portfolio-title">Bella Luxury Limos</h3>
+                           <p>Bella Luxury Limos is a premium website showcasing top-tier luxury limousine services. The site is elegantly designed with a responsive layout, ensuring a seamless experience on all devices. Built using HTML, CSS, and JavaScript for the front end, and powered by PHP for backend functionalities, it offers dynamic content and smooth navigation. The modern and sophisticated design reflects the brand's commitment to quality and luxury, making it a standout example of professional web development.</p>
                            <i class="bx bx-arrow-to-top"></i>
-                           <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
+                           <button data-mfp-src="#bella-portfolio-wrapper" class="portfolio-link modal-popup"></button>
                         </div>
                      </div>
 
                      <!-- Mobile App Project -->
                      <div class="portfolio-item mobile-app">
                         <div class="image-box">
-                           <img src="assets/img/portfolio/3.jpg" alt="Mobile App Project" />
+                           <img src="assets/img/portfolio/johnhall.jpg" alt="Mobile App Project" />
                         </div>
                         <div class="content-box">
-                           <h3 class="portfolio-title">Sebastian App</h3>
-                           <p>Developed a highly interactive mobile app for Sebastian to streamline services and enhance user engagement.</p>
-                           <p>Technologies Used: HTML, CSS, JavaScript, Laravel, WordPress</p>
+                           <h3 class="portfolio-title">John Hall</h3>
+                           <p>The John Hall website is a professional real estate platform designed to provide comprehensive property listings and services. It features a modern, responsive design, ensuring compatibility across all devices for an optimal user experience. Developed using HTML, CSS, JavaScript, and backed by PHP, the website offers dynamic functionality and seamless navigation. Its clean layout and intuitive interface make it an excellent example of effective web development tailored for the real estate industry.</p>
                            <i class="bx bx-arrow-to-top"></i>
-                           <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
+                           <button data-mfp-src="#John-portfolio-wrapper" class="portfolio-link modal-popup"></button>
                         </div>
                      </div>
 
                      <!-- Branding Project -->
                      <div class="portfolio-item branding">
                         <div class="image-box">
-                           <img src="assets/img/portfolio/4.jpg" alt="Branding Project" />
+                           <img src="assets/img/portfolio/jobrecycling.jpg" alt="Branding Project" />
                         </div>
                         <div class="content-box">
-                           <h3 class="portfolio-title">Mochnix Logo Design</h3>
-                           <p>Created a fresh and dynamic logo for Mochnix, representing their tech-forward vision and innovative approach.</p>
-                           <p>Technologies Used: HTML, CSS, Bootstrap</p>
+                           <h3 class="portfolio-title">Job Recycling</h3>
+                           <p>Job Recycling is a specialized website focused on recycling solutions and services in the UK. The site is built with a clean, responsive design, ensuring an excellent user experience across all devices. Developed using HTML, CSS, JavaScript, and powered by PHP, it provides dynamic functionality and easy navigation. The modern layout, combined with user-friendly features, effectively highlights the brand’s commitment to sustainability and recycling innovation.</p>
                            <i class="bx bx-arrow-to-top"></i>
-                           <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
+                           <button data-mfp-src="#job-recycling-portfolio-wrapper" class="portfolio-link modal-popup"></button>
                         </div>
                      </div>
                   </div>
@@ -376,112 +372,151 @@
       </section>
       <!-- PORTFOLIO SECTION END -->
 
-      <!-- start: Portfolio Popup -->
-      <div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-         <div class="popup_modal_img">
-            <img src="./assets/img/portfolio/modal-img.jpg" alt="Portfolio Image" />
+      <!-- start: Portfolio Popup - Little Cruisers -->
+<div id="Little-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+   <div class="popup_modal_img">
+      <img src="./assets/img/portfolio/little-cruisers.jpg" alt="Portfolio Image" />
+   </div>
+   <div class="popup_modal_content">
+      <div class="portfolio_info">
+         <div class="portfolio_info_text">
+            <h2 class="title">Little Cruisers</h2>
+            <div class="desc">
+               <p>A clean and responsive website showcasing cruising experiences across Canada, developed with modern web technologies.</p>
+            </div>
+            <a href="https://littlecruisers.ca/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
          </div>
-         <div class="popup_modal_content">
-            <div class="portfolio_info">
-               <div class="portfolio_info_text">
-                  <h2 class="title">Creative Web Studio</h2>
-                  <div class="desc">
-                     <p>
-                        This project showcases my expertise in crafting modern, responsive, and performance-focused websites that stand out in the digital landscape.
-                     </p>
-                  </div>
-                  <a href="#" class="btn tj-btn-primary">Live Preview <i class="fal fa-arrow-right"></i></a>
-               </div>
-               <div class="portfolio_info_items">
-                  <div class="info_item">
-                     <div class="key">Category</div>
-                     <div class="value">Full Stack Development</div>
-                  </div>
-                  <div class="info_item">
-                     <div class="key">Client</div>
-                     <div class="value">Creative Co.</div>
-                  </div>
-                  <div class="info_item">
-                     <div class="key">Start Date</div>
-                     <div class="value">October 10, 2023</div>
-                  </div>
-                  <div class="info_item">
-                     <div class="key">Technologies Used</div>
-                     <div class="value">React.js, Laravel, Bootstrap</div>
-                  </div>
-               </div>
+         <div class="portfolio_info_items">
+            <div class="info_item">
+               <div class="key">Category</div>
+               <div class="value">Web Development</div>
             </div>
-            <div class="portfolio_gallery owl-carousel">
-               <div class="gallery_item">
-                  <img src="./assets/img/portfolio-gallery/p-gallery-1.jpg" alt="Gallery Image 1" />
-               </div>
-               <div class="gallery_item">
-                  <img src="./assets/img/portfolio-gallery/p-gallery-2.jpg" alt="Gallery Image 2" />
-               </div>
-               <div class="gallery_item">
-                  <img src="./assets/img/portfolio-gallery/p-gallery-3.jpg" alt="Gallery Image 3" />
-               </div>
-               <div class="gallery_item">
-                  <img src="./assets/img/portfolio-gallery/p-gallery-4.jpg" alt="Gallery Image 4" />
-               </div>
-            </div>
-            <div class="portfolio_description">
-               <h2 class="title">Project Description</h2>
-               <div class="desc">
-                  <p>
-                     The project involved building a fully responsive website with custom features to enhance user experience. Designed for scalability and efficiency, this solution offers seamless navigation and modern aesthetics.
-                  </p>
-
-                  <p>
-                     Emphasis was placed on creating a clean and intuitive interface while ensuring optimal performance across all platforms and devices.
-                  </p>
-               </div>
-            </div>
-            <div class="portfolio_story_approach">
-               <div class="portfolio_story">
-                  <div class="story_title">
-                     <h4 class="title">The Story</h4>
-                  </div>
-                  <div class="story_content">
-                     <p>
-                        This project began as a challenge to create a dynamic and engaging online presence for the client. By understanding their vision and audience, we crafted a unique solution that aligns with their goals and reflects their brand identity.
-                     </p>
-                  </div>
-               </div>
-               <div class="portfolio_approach">
-                  <div class="approach_title">
-                     <h4 class="title">Our Approach</h4>
-                  </div>
-                  <div class="approach_content">
-                     <p>
-                        We adopted a systematic approach focusing on user-centric design, robust backend functionality, and high performance. The process involved detailed planning, agile development, and rigorous testing to ensure the final product met and exceeded client expectations.
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <div class="portfolio_navigation">
-               <div class="navigation_item prev-project">
-                  <a href="#" class="project">
-                     <i class="fal fa-arrow-left"></i>
-                     <div class="nav_project">
-                        <div class="label">Previous Project</div>
-                        <h3 class="title">Digital Solutions</h3>
-                     </div>
-                  </a>
-               </div>
-               <div class="navigation_item next-project">
-                  <a href="#" class="project">
-                     <div class="nav_project">
-                        <div class="label">Next Project</div>
-                        <h3 class="title">Tech Pro</h3>
-                     </div>
-                     <i class="fal fa-arrow-right"></i>
-                  </a>
-               </div>
+            <div class="info_item">
+               <div class="key">Technologies Used</div>
+               <div class="value">HTML, CSS, JavaScript, PHP</div>
             </div>
          </div>
       </div>
-      <!-- end: Portfolio Popup -->
+   </div>
+</div>
+<!-- end: Portfolio Popup -->
+
+<!-- start: Portfolio Popup - Bella Luxury Limos -->
+<div id="bella-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+   <div class="popup_modal_img">
+      <img src="./assets/img/portfolio/bella-luxury-limos.jpg" alt="Portfolio Image" />
+   </div>
+   <div class="popup_modal_content">
+      <div class="portfolio_info">
+         <div class="portfolio_info_text">
+            <h2 class="title">Bella Luxury Limos</h2>
+            <div class="desc">
+               <p>A sophisticated website reflecting luxury and professionalism in limousine services, ensuring a seamless user experience.</p>
+            </div>
+            <a href="https://bellaluxurylimos.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+         </div>
+         <div class="portfolio_info_items">
+            <div class="info_item">
+               <div class="key">Category</div>
+               <div class="value">Web Development</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Technologies Used</div>
+               <div class="value">HTML, CSS, JavaScript, PHP</div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end: Portfolio Popup -->
+
+<!-- start: Portfolio Popup - John Hall -->
+<div id="John-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+   <div class="popup_modal_img">
+      <img src="./assets/img/portfolio/john-hall.jpg" alt="Portfolio Image" />
+   </div>
+   <div class="popup_modal_content">
+      <div class="portfolio_info">
+         <div class="portfolio_info_text">
+            <h2 class="title">John Hall</h2>
+            <div class="desc">
+               <p>A professional real estate platform offering comprehensive property listings and seamless navigation for all users.</p>
+            </div>
+            <a href="https://johnhall.bmgroupinc.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+         </div>
+         <div class="portfolio_info_items">
+            <div class="info_item">
+               <div class="key">Category</div>
+               <div class="value">Real Estate Platform</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Technologies Used</div>
+               <div class="value">HTML, CSS, JavaScript, PHP</div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end: Portfolio Popup -->
+
+<!-- start: Portfolio Popup - Job Recycling -->
+<div id="job-recycling-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+   <div class="popup_modal_img">
+      <img src="./assets/img/portfolio/job-recycling.jpg" alt="Portfolio Image" />
+   </div>
+   <div class="popup_modal_content">
+      <div class="portfolio_info">
+         <div class="portfolio_info_text">
+            <h2 class="title">Job Recycling</h2>
+            <div class="desc">
+               <p>An innovative platform dedicated to recycling solutions, designed with sustainability and usability in mind.</p>
+            </div>
+            <a href="https://jobrecycling.co.uk/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+         </div>
+         <div class="portfolio_info_items">
+            <div class="info_item">
+               <div class="key">Category</div>
+               <div class="value">Environmental Solutions</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Technologies Used</div>
+               <div class="value">HTML, CSS, JavaScript, PHP</div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end: Portfolio Popup -->
+
+<!-- start: Portfolio Popup - Qarni Travel -->
+<div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+   <div class="popup_modal_img">
+      <img src="./assets/img/portfolio/qarni-travel.jpg" alt="Portfolio Image" />
+   </div>
+   <div class="popup_modal_content">
+      <div class="portfolio_info">
+         <div class="portfolio_info_text">
+            <h2 class="title">Qarni Travel</h2>
+            <div class="desc">
+               <p>A travel booking and planning platform designed with modern aesthetics and exceptional usability.</p>
+            </div>
+            <a href="https://qarnitravel.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+         </div>
+         <div class="portfolio_info_items">
+            <div class="info_item">
+               <div class="key">Category</div>
+               <div class="value">Travel Platform</div>
+            </div>
+            <div class="info_item">
+               <div class="key">Technologies Used</div>
+               <div class="value">HTML, CSS, JavaScript, PHP</div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end: Portfolio Popup -->
+
 
       <!-- RESUME SECTION START -->
       <section class="resume-section" id="resume-section">
@@ -749,7 +784,7 @@
                                  <div class="form_group">
                                     <select name="conService" id="conService" class="tj-nice-select" required>
                                        <option value="" selected disabled>Choose Service</option>
-                                       <option value="branding">Branding Design</option>
+                                       <option value="branding">Job Recycling</option>
                                        <option value="web">Web Design</option>
                                        <option value="uxui">UI/UX Design</option>
                                        <option value="app">App Design</option>

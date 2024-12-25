@@ -334,7 +334,6 @@
 .works-inner .works-item {
 	display: flex;
 	gap: 20px;
-	padding-left: 40px;
 }
 .works-inner .works-item::before {
 	top: 25px;

@@ -36,47 +36,42 @@
         
                             <!-- Form Section -->
                             <div class="tj-contact-form">
-                                <form id="contact-form" action="{{ route('contact.store') }}" method="POST" novalidate="novalidate">
-                                    @csrf
-                                    <div class="row gx-3">
-                                        <!-- First Name -->
-                                        <div class="col-sm-6">
-                                            <div class="form_group">
-                                                <input type="text" name="name" id="conName" placeholder="Your Name" required aria-required="true">
-                                            </div>
-                                        </div>
-                                        <!-- Email -->
-                                        <div class="col-sm-6">
-                                            <div class="form_group">
-                                                <input type="email" name="email" id="conEmail" placeholder="Email Address" required aria-required="true">
-                                            </div>
-                                        </div>
-                                        <!-- Phone -->
-                                        <div class="col-sm-6">
-                                            <div class="form_group">
-                                                <input type="tel" name="phone" id="conPhone" placeholder="Phone Number" required aria-required="true">
-                                            </div>
-                                        </div>
-                                        <!-- Subject -->
-                                        <div class="col-sm-6">
-                                            <div class="form_group">
-                                                <input type="text" name="subject" id="conSubject" placeholder="Subject" required aria-required="true">
-                                            </div>
-                                        </div>
-                                        <!-- Message -->
-                                        <div class="col-12">
-                                            <div class="form_group">
-                                                <textarea name="message" id="conMessage" placeholder="Your Message" required aria-required="true"></textarea>
-                                            </div>
-                                        </div>
-                                        <!-- Submit Button -->
-                                        <div class="col-12">
-                                            <div class="form_btn">
-                                                <button type="submit" class="btn tj-btn-primary">Send Message</button>
-                                            </div>
+                            <form id="contact-form" action="{{ route('contactus.submit') }}" method="POST">
+                                @csrf
+                                <div class="row gx-3">
+                                    <div class="col-sm-6">
+                                        <div class="form_group">
+                                            <input type="text" name="name" id="name" placeholder="First name" required />
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-sm-6">
+                                        <div class="form_group">
+                                            <input type="text" name="subject" id="subject" placeholder="Subject" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form_group">
+                                            <input type="email" name="email" id="email" placeholder="Email address" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form_group">
+                                            <input type="tel" name="phone" id="phone" placeholder="Phone number" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form_group">
+                                            <textarea name="message" id="message" placeholder="Message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form_btn">
+                                            <button type="submit" class="btn tj-btn-primary">Send Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
                             </div>
                         </div>
                     </div>

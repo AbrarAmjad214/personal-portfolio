@@ -24,3 +24,6 @@ Route::get('contact', function () {
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+// routes/web.php
+
+Route::post('/submit-contact-form', [ContactUsController::class, 'ContactusEmail'])->name('contactus.submit');

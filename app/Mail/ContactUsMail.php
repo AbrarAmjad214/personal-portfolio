@@ -32,7 +32,7 @@ class ContactUsMail extends Mailable
     {
         return $this->from(config('mail.from.address'))
                     ->subject('New Contact Message from ' . $this->data['name'] . ' ' )
-                    ->view('contact_mail') // The Blade view for the email content
+                    ->view('contactus') // The Blade view for the email content
                     ->with('data', $this->data);
     }
 }

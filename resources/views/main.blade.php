@@ -18,7 +18,7 @@
    <meta property="og:title" content="rabrar - Personal Portfolio" />
    <meta property="og:description" content="Explore rabrar's portfolio of creative web design, UX/UI, branding, and development projects." />
    <meta property="og:image" content="{{ asset('assets/img/portfolio-preview.jpg') }}" />
-   <meta property="og:url" content="https://yourwebsite.com" />
+   <meta property="og:url" content="https://rabrar.com" />
    <meta property="og:type" content="website" />
    <meta property="og:locale" content="en_US" />
 
@@ -32,8 +32,8 @@
    <link rel="canonical" href="https://yourwebsite.com" />
 
    <!-- Favicon and Icons -->
-   <link rel="apple-touch-icon" href="{{ asset('assets/img/favicon.png') }}" />
-   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}" />
+   <link rel="apple-touch-icon" href="{{ asset('assets/img/favicon.jpg') }}" />
+   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/favicon.jpg') }}" />
 
    <!-- Stylesheets -->
    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}" />
@@ -165,7 +165,7 @@
                </div>
                <div class="mobile-menu d-lg-none"></div>
                <div class="header-button">
-                  <a href="#" class="btn tj-btn-primary">Hire me!</a>
+                  <a href="https://wa.me/923249104139" target="_blank" class="btn tj-btn-primary">Hire me!</a>
                </div>
                <div class="menu-bar d-lg-none">
                   <button>
@@ -196,7 +196,7 @@
                <div class="header-menu">
                   <nav>
                      <ul>
-                        <li class="has-dropdown current-menu-ancestor">
+                        <li class="current-menu-ancestor">
                            <a href="{{ ('/') }}">Home</a>
                         </li>
                         <li><a href="{{ ('about-us') }}">About Us</a></li>
@@ -208,7 +208,7 @@
                </div>
                <div class="mobile-menu d-lg-none"></div>
                <div class="header-button">
-                  <a href="#" class="btn tj-btn-primary">Hire me!</a>
+                  <a href="https://wa.me/923249104139" target="_blank" class="btn tj-btn-primary">Hire me!</a>
                </div>
                <div class="menu-bar d-lg-none">
                   <button>

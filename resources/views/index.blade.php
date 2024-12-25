@@ -28,11 +28,11 @@
                         <a href="assets\img\abrar-cv.pdf" class="btn tj-btn-secondary">Download CV <i class="fa-solid fa-download"></i>
                         </a>
                         <ul class="ul-reset social-icons">
-                           <li>
+                           <!-- <li>
                               <a href="https://twitter.com/yourusername" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                           </li>
+                           </li> -->
                            <li>
-                              <a href="https://github.com/yourusername" target="_blank"><i class="fa-brands fa-github"></i></a>
+                              <a href="https://github.com/AbrarAmjad214" target="_blank"><i class="fa-brands fa-github"></i></a>
                            </li>
                            <li>
                               <a href="https://www.linkedin.com/in/abrar-amjad-87450a288/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -108,7 +108,7 @@
                            </p>
                         </div>
                         <i class="bx bx-code"></i>
-                        <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
+                        <button  class="service-link modal-popup"></button>
                      </div>
                      <!-- Service 2: WordPress Development -->
                      <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".6s">
@@ -122,7 +122,7 @@
                            </p>
                         </div>
                         <i class="bx bx-wordpress"></i>
-                        <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
+                        <button  class="service-link modal-popup"></button>
                      </div>
                      <!-- Service 3: Responsive Web Design -->
                      <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".7s">
@@ -136,7 +136,7 @@
                            </p>
                         </div>
                         <i class="bx bx-devices"></i>
-                        <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
+                        <button  class="service-link modal-popup"></button>
                      </div>
                      <!-- Service 4: API Integration -->
                      <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".8s">
@@ -150,7 +150,7 @@
                            </p>
                         </div>
                         <i class="bx bx-link"></i>
-                        <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
+                        <button  class="service-link modal-popup"></button>
                      </div>
                      <!-- Service 5: Website Maintenance -->
                      <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".9s">
@@ -164,7 +164,7 @@
                            </p>
                         </div>
                         <i class="bx bx-wrench"></i>
-                        <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
+                        <button  class="service-link modal-popup"></button>
                      </div>
                      <div class="active-bg wow fadeInUp" data-wow-delay=".5s"></div>
                   </div>
@@ -174,115 +174,6 @@
       </section>
       <!-- SERVICES SECTION END -->
 
-      <!-- start: Service Popup -->
-      <div id="service-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-         <div class="popup_modal_img">
-            <img src="./assets/img/services/modal-img.jpg" alt="Service Image" />
-         </div>
-         <div class="popup_modal_content">
-            <div class="service_details">
-               <div class="row">
-                  <div class="col-lg-7 col-xl-8">
-                     <div class="service_details_content">
-                        <div class="service_info">
-                           <h6 class="subtitle">SERVICES</h6>
-                           <h2 class="title">Full Stack Web Development</h2>
-                           <div class="desc">
-                              <p>
-                                 I specialize in creating dynamic, responsive, and feature-rich websites using modern technologies like Laravel and React.js. From concept to deployment, I ensure every project is crafted with precision and care.
-                              </p>
-                              <p>
-                                 My websites are optimized for performance, scalability, and an exceptional user experience across all devices and browsers.
-                              </p>
-                              <p>
-                                 Whether it's an e-commerce platform, business site, or a custom web application, I deliver solutions that align perfectly with your business goals.
-                              </p>
-                           </div>
-
-                           <h3 class="title">Our Process</h3>
-                           <div class="desc">
-                              <p>
-                                 My approach combines technical expertise with creative problem-solving to deliver outstanding results:
-                              </p>
-                           </div>
-                           <ul>
-                              <li>Client Consultation and Requirements Gathering</li>
-                              <li>Wireframing and UI/UX Prototyping</li>
-                              <li>Full Stack Development (Frontend and Backend)</li>
-                              <li>Thorough Testing for Quality Assurance</li>
-                              <li>Deployment and Post-Launch Support</li>
-                              <li>Continuous Maintenance and Updates</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-5 col-xl-4">
-                     <div class="tj_main_sidebar">
-                        <div class="sidebar_widget services_list">
-                           <div class="widget_title">
-                              <h3 class="title">All Services</h3>
-                           </div>
-                           <ul>
-                              <li class="active">
-                                 <button>
-                                    <i class="bx bx-code"></i>
-                                    Full Stack Development
-                                 </button>
-                              </li>
-                              <li>
-                                 <button>
-                                    <i class="bx bx-wordpress"></i>
-                                    WordPress Development
-                                 </button>
-                              </li>
-                              <li>
-                                 <button>
-                                    <i class="bx bx-devices"></i>
-                                    Responsive Web Design
-                                 </button>
-                              </li>
-                              <li>
-                                 <button>
-                                    <i class="bx bx-link"></i>
-                                    API Integration
-                                 </button>
-                              </li>
-                              <li>
-                                 <button>
-                                    <i class="bx bx-wrench"></i>
-                                    Website Maintenance
-                                 </button>
-                              </li>
-                           </ul>
-                        </div>
-
-                        <div class="sidebar_widget contact_form">
-                           <div class="widget_title">
-                              <h3 class="title">Get in Touch</h3>
-                           </div>
-
-                           <form action="index.html">
-                              <div class="form_group">
-                                 <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" />
-                              </div>
-                              <div class="form_group">
-                                 <input type="email" name="semail" id="semail" placeholder="Email" autocomplete="off" />
-                              </div>
-                              <div class="form_group">
-                                 <textarea name="smessage" id="smessage" placeholder="Your message" autocomplete="off"></textarea>
-                              </div>
-                              <div class="form_btn">
-                                 <button class="btn tj-btn-primary" type="submit">Send Message</button>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end: Service Popup -->
 
       <!-- PORTFOLIO SECTION START -->
       <section class="portfolio-section" id="works-section">
@@ -302,10 +193,10 @@
                <div class="col-md-12">
                   <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
                      <div class="button-group filter-button-group">
-                        <button data-filter="*" class="active">Laravel</button>
+                        <button data-filter="*" class="active">All</button>
+                        <button data-filter=".branding">Php Laravel</button>
                         <button data-filter=".uxui">WordPress</button>
-                        <!-- <button data-filter=".branding">Branding</button>
-                        <button data-filter=".mobile-app">Apps</button> -->
+                        <!-- <button data-filter=".mobile-app">Apps</button> -->
                         <div class="active-bg"></div>
                      </div>
                   </div>
@@ -317,7 +208,8 @@
                      <!-- Branding Project -->
                      <div class="portfolio-item branding">
                         <div class="image-box">
-                           <img src="assets\img\portfolio\littile_caruser.JPG" alt="Branding Project" />
+                           <img src="assets\img\portfolio\littile_caruser-1.jpg" alt="Branding Project" />
+                           <img src="assets\img\portfolio\littile_caruser2.jpg" alt="Branding Project" />
                         </div>
                         <div class="content-box">
                            <h3 class="portfolio-title">Little Cruisers</h3>
@@ -328,9 +220,10 @@
                      </div>
 
                      <!-- UX/UI Project -->
-                     <div class="portfolio-item uxui">
+                     <div class="portfolio-item branding">
                         <div class="image-box">
-                           <img src="assets\img\portfolio\bellaluxurylimos.JPG" alt="UX/UI Design Project" />
+                           <img src="assets\img\portfolio\bellaluxurylimos-1.jpg" alt="UX/UI Design Project" />
+                           <img src="assets\img\portfolio\bellaluxurylimos.jpg" alt="UX/UI Design Project" />
                         </div>
                         <div class="content-box">
                            <h3 class="portfolio-title">Bella Luxury Limos</h3>
@@ -341,9 +234,10 @@
                      </div>
 
                      <!-- Mobile App Project -->
-                     <div class="portfolio-item mobile-app">
+                     <div class="portfolio-item branding">
                         <div class="image-box">
-                           <img src="assets/img/portfolio/johnhall.jpg" alt="Mobile App Project" />
+                           <img src="{{ asset('assets/img/portfolio/johnhall-2.jpg') }}" alt="johnhall" />
+                           <img src="{{ asset('assets/img/portfolio/johnhall-1.jpg') }}" alt="johnhall" />
                         </div>
                         <div class="content-box">
                            <h3 class="portfolio-title">John Hall</h3>
@@ -356,7 +250,8 @@
                      <!-- Branding Project -->
                      <div class="portfolio-item branding">
                         <div class="image-box">
-                           <img src="assets/img/portfolio/jobrecycling.jpg" alt="Branding Project" />
+                           <img src="{{ asset('assets/img/portfolio/jobrecycling-2.jpg') }}" alt="Branding Project" />
+                           <img src="{{ asset('assets/img/portfolio/jobrecycling.jpg') }}" alt="Branding Project" />
                         </div>
                         <div class="content-box">
                            <h3 class="portfolio-title">Job Recycling</h3>
@@ -365,6 +260,25 @@
                            <button data-mfp-src="#job-recycling-portfolio-wrapper" class="portfolio-link modal-popup"></button>
                         </div>
                      </div>
+
+                     <!-- UX/UI Project -->
+                     <div class="portfolio-item uxui">
+                        <div class="image-box">
+                           </div>
+                           <img src="{{ asset('assets/img/portfolio/qarni-travel-2.jpg') }}" alt="Qarni Travel Project" />
+                           <img src="{{ asset('assets/img/portfolio/qarni-travel.jpg') }}" alt="Qarni Travel Project" />
+                        <div class="content-box">
+                           <h3 class="portfolio-title">Qarni Travel</h3>
+                           <p>
+                                 Qarni Travel is your trusted partner in travel planning, offering comprehensive services like flight bookings, hotel reservations, and custom tour packages. With a focus on delivering exceptional experiences, the website features a user-friendly design and seamless navigation. Built with modern web technologies, Qarni Travel ensures every traveler finds convenience and inspiration in their journey.
+                           </p>
+                           <div class="portfolio-actions">
+                                 <i class="bx bx-arrow-to-top"></i>
+                                 <button data-mfp-src="#qarni-portfolio-wrapper" class="portfolio-link modal-popup"></button>
+                           </div>
+                        </div>
+                     </div>
+
                   </div>
                </div>
             </div>
@@ -373,149 +287,149 @@
       <!-- PORTFOLIO SECTION END -->
 
       <!-- start: Portfolio Popup - Little Cruisers -->
-<div id="Little-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-   <div class="popup_modal_img">
-      <img src="./assets/img/portfolio/little-cruisers.jpg" alt="Portfolio Image" />
-   </div>
-   <div class="popup_modal_content">
-      <div class="portfolio_info">
-         <div class="portfolio_info_text">
-            <h2 class="title">Little Cruisers</h2>
-            <div class="desc">
-               <p>A clean and responsive website showcasing cruising experiences across Canada, developed with modern web technologies.</p>
+         <div id="Little-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+            <div class="popup_modal_img">
+               <img src="./assets/img/portfolio/littile_caruser.jpg" alt="Portfolio Image" />
             </div>
-            <a href="https://littlecruisers.ca/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+            <div class="popup_modal_content">
+               <div class="portfolio_info">
+                  <div class="portfolio_info_text">
+                     <h2 class="title">Little Cruisers</h2>
+                     <div class="desc">
+                        <p>A clean and responsive website showcasing cruising experiences across Canada, developed with modern web technologies.</p>
+                     </div>
+                     <a href="https://littlecruisers.ca/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="portfolio_info_items">
+                     <div class="info_item">
+                        <div class="key">Category</div>
+                        <div class="value">Web Development</div>
+                     </div>
+                     <div class="info_item">
+                        <div class="key">Technologies Used</div>
+                        <div class="value">HTML, CSS, JavaScript, PHP</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-         <div class="portfolio_info_items">
-            <div class="info_item">
-               <div class="key">Category</div>
-               <div class="value">Web Development</div>
-            </div>
-            <div class="info_item">
-               <div class="key">Technologies Used</div>
-               <div class="value">HTML, CSS, JavaScript, PHP</div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- end: Portfolio Popup -->
+         <!-- end: Portfolio Popup -->
 
-<!-- start: Portfolio Popup - Bella Luxury Limos -->
-<div id="bella-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-   <div class="popup_modal_img">
-      <img src="./assets/img/portfolio/bella-luxury-limos.jpg" alt="Portfolio Image" />
-   </div>
-   <div class="popup_modal_content">
-      <div class="portfolio_info">
-         <div class="portfolio_info_text">
-            <h2 class="title">Bella Luxury Limos</h2>
-            <div class="desc">
-               <p>A sophisticated website reflecting luxury and professionalism in limousine services, ensuring a seamless user experience.</p>
+         <!-- start: Portfolio Popup - Bella Luxury Limos -->
+         <div id="bella-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+            <div class="popup_modal_img">
+               <img src="./assets/img/portfolio/bellaluxurylimos.jpg" alt="Portfolio Image" />
             </div>
-            <a href="https://bellaluxurylimos.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+            <div class="popup_modal_content">
+               <div class="portfolio_info">
+                  <div class="portfolio_info_text">
+                     <h2 class="title">Bella Luxury Limos</h2>
+                     <div class="desc">
+                        <p>A sophisticated website reflecting luxury and professionalism in limousine services, ensuring a seamless user experience.</p>
+                     </div>
+                     <a href="https://bellaluxurylimos.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="portfolio_info_items">
+                     <div class="info_item">
+                        <div class="key">Category</div>
+                        <div class="value">Web Development</div>
+                     </div>
+                     <div class="info_item">
+                        <div class="key">Technologies Used</div>
+                        <div class="value">HTML, CSS, JavaScript, PHP</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-         <div class="portfolio_info_items">
-            <div class="info_item">
-               <div class="key">Category</div>
-               <div class="value">Web Development</div>
-            </div>
-            <div class="info_item">
-               <div class="key">Technologies Used</div>
-               <div class="value">HTML, CSS, JavaScript, PHP</div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- end: Portfolio Popup -->
+         <!-- end: Portfolio Popup -->
 
-<!-- start: Portfolio Popup - John Hall -->
-<div id="John-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-   <div class="popup_modal_img">
-      <img src="./assets/img/portfolio/john-hall.jpg" alt="Portfolio Image" />
-   </div>
-   <div class="popup_modal_content">
-      <div class="portfolio_info">
-         <div class="portfolio_info_text">
-            <h2 class="title">John Hall</h2>
-            <div class="desc">
-               <p>A professional real estate platform offering comprehensive property listings and seamless navigation for all users.</p>
+         <!-- start: Portfolio Popup - John Hall -->
+         <div id="John-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+            <div class="popup_modal_img">
+               <img src="./assets/img/portfolio/johnhall-2.jpg" alt="Portfolio Image" />
             </div>
-            <a href="https://johnhall.bmgroupinc.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+            <div class="popup_modal_content">
+               <div class="portfolio_info">
+                  <div class="portfolio_info_text">
+                     <h2 class="title">John Hall</h2>
+                     <div class="desc">
+                        <p>A professional real estate platform offering comprehensive property listings and seamless navigation for all users.</p>
+                     </div>
+                     <a href="https://johnhall.bmgroupinc.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="portfolio_info_items">
+                     <div class="info_item">
+                        <div class="key">Category</div>
+                        <div class="value">Real Estate Platform</div>
+                     </div>
+                     <div class="info_item">
+                        <div class="key">Technologies Used</div>
+                        <div class="value">HTML, CSS, JavaScript, PHP</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-         <div class="portfolio_info_items">
-            <div class="info_item">
-               <div class="key">Category</div>
-               <div class="value">Real Estate Platform</div>
-            </div>
-            <div class="info_item">
-               <div class="key">Technologies Used</div>
-               <div class="value">HTML, CSS, JavaScript, PHP</div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- end: Portfolio Popup -->
+         <!-- end: Portfolio Popup -->
 
-<!-- start: Portfolio Popup - Job Recycling -->
-<div id="job-recycling-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-   <div class="popup_modal_img">
-      <img src="./assets/img/portfolio/job-recycling.jpg" alt="Portfolio Image" />
-   </div>
-   <div class="popup_modal_content">
-      <div class="portfolio_info">
-         <div class="portfolio_info_text">
-            <h2 class="title">Job Recycling</h2>
-            <div class="desc">
-               <p>An innovative platform dedicated to recycling solutions, designed with sustainability and usability in mind.</p>
+         <!-- start: Portfolio Popup - Job Recycling -->
+         <div id="job-recycling-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+            <div class="popup_modal_img">
+               <img src="./assets/img/portfolio/jobrecycling-2.jpg" alt="Portfolio Image" />
             </div>
-            <a href="https://jobrecycling.co.uk/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+            <div class="popup_modal_content">
+               <div class="portfolio_info">
+                  <div class="portfolio_info_text">
+                     <h2 class="title">Job Recycling</h2>
+                     <div class="desc">
+                        <p>An innovative platform dedicated to recycling solutions, designed with sustainability and usability in mind.</p>
+                     </div>
+                     <a href="https://jobrecycling.co.uk/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="portfolio_info_items">
+                     <div class="info_item">
+                        <div class="key">Category</div>
+                        <div class="value">Environmental Solutions</div>
+                     </div>
+                     <div class="info_item">
+                        <div class="key">Technologies Used</div>
+                        <div class="value">HTML, CSS, JavaScript, PHP</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-         <div class="portfolio_info_items">
-            <div class="info_item">
-               <div class="key">Category</div>
-               <div class="value">Environmental Solutions</div>
-            </div>
-            <div class="info_item">
-               <div class="key">Technologies Used</div>
-               <div class="value">HTML, CSS, JavaScript, PHP</div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- end: Portfolio Popup -->
+         <!-- end: Portfolio Popup -->
 
-<!-- start: Portfolio Popup - Qarni Travel -->
-<div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
-   <div class="popup_modal_img">
-      <img src="./assets/img/portfolio/qarni-travel.jpg" alt="Portfolio Image" />
-   </div>
-   <div class="popup_modal_content">
-      <div class="portfolio_info">
-         <div class="portfolio_info_text">
-            <h2 class="title">Qarni Travel</h2>
-            <div class="desc">
-               <p>A travel booking and planning platform designed with modern aesthetics and exceptional usability.</p>
+         <!-- start: Portfolio Popup - Qarni Travel -->
+         <div id="qarni-portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide" data-lenis-prevent>
+            <div class="popup_modal_img">
+               <img src="./assets/img/portfolio/qarni-travel.jpg" alt="Portfolio Image" />
             </div>
-            <a href="https://qarnitravel.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fal fa-arrow-right"></i></a>
+            <div class="popup_modal_content">
+               <div class="portfolio_info">
+                  <div class="portfolio_info_text">
+                     <h2 class="title">Qarni Travel</h2>
+                     <div class="desc">
+                        <p>A travel booking and planning platform designed with modern aesthetics and exceptional usability.</p>
+                     </div>
+                     <a href="https://qarnitravel.com/" class="btn tj-btn-primary" target="_blank">Live Preview <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="portfolio_info_items">
+                     <div class="info_item">
+                        <div class="key">Category</div>
+                        <div class="value">Travel Platform</div>
+                     </div>
+                     <div class="info_item">
+                        <div class="key">Technologies Used</div>
+                        <div class="value">WordPess, Elementor</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-         <div class="portfolio_info_items">
-            <div class="info_item">
-               <div class="key">Category</div>
-               <div class="value">Travel Platform</div>
-            </div>
-            <div class="info_item">
-               <div class="key">Technologies Used</div>
-               <div class="value">HTML, CSS, JavaScript, PHP</div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- end: Portfolio Popup -->
+      <!-- end: Portfolio Popup -->
 
 
       <!-- RESUME SECTION START -->
@@ -622,11 +536,9 @@
                </div>
             </div>
             <div class="row">
-               <div class="col-lg-9 mt-5">
+               <div class="col-lg-12 mt-5">
                   <div class="skills-widget d-flex flex-wrap justify-content-center align-items-center">
-                  <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
                         
-                        </div>
                   <!-- Framer Skill -->
                      <div class="skill-item wow fadeInUp" data-wow-delay=".8s">
                         <div class="skill-inner">
@@ -657,7 +569,9 @@
                         </div>
                         <p>ReactJS</p>
                      </div>
-                     
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
+                        
+                        </div>
                   </div>
                </div>
             </div>
@@ -683,16 +597,13 @@
                         <div class="testimonial-item">
                            <div class="top-area d-flex flex-wrap justify-content-between">
                               <div class="logo-box">
-                                 <img src="assets/img/testimonials/logo/1.png" alt="Client Logo 1" />
-                              </div>
-                              <div class="image-box">
-                                 <img src="assets/img/testimonials/user/1.jpg" alt="Client 1" />
+                                 <img src="assets/img/testimonials/testimonials-1.webp" alt="Client Logo 1" />
                               </div>
                            </div>
                            <div class="icon-box">
                               <!-- SVG Icons here -->
                            </div>
-                           <p class="quote">“Taylor is a professional Designer; he really helped my business by providing
+                           <p class="quote">“Abrar is a professional Designer; he really helped my business by providing
                               value to my business."</p>
                            <h4 class="name">Brandon Fraser</h4>
                            <span class="designation">Senior Software Dev, Cosmic Sport</span>
@@ -702,16 +613,13 @@
                         <div class="testimonial-item">
                            <div class="top-area d-flex flex-wrap justify-content-between">
                               <div class="logo-box">
-                                 <img src="assets/img/testimonials/logo/2.png" alt="Client Logo 2" />
-                              </div>
-                              <div class="image-box">
-                                 <img src="assets/img/testimonials/user/2.jpg" alt="Client 2" />
+                                 <img src="assets/img/testimonials/testimonials-2.webp" alt="Client 1" />
                               </div>
                            </div>
                            <div class="icon-box">
                               <!-- SVG Icons here -->
                            </div>
-                           <p class="quote">“Taylor is a professional Designer; he really helped my business by providing
+                           <p class="quote">“Abrar is a professional Designer; he really helped my business by providing
                               value to my business."</p>
                            <h4 class="name">Tim Bailey</h4>
                            <span class="designation">SEO Specialist, Theme Junction</span>
@@ -721,16 +629,13 @@
                         <div class="testimonial-item">
                            <div class="top-area d-flex flex-wrap justify-content-between">
                               <div class="logo-box">
-                                 <img src="assets/img/testimonials/logo/1.png" alt="Client Logo 1" />
-                              </div>
-                              <div class="image-box">
-                                 <img src="assets/img/testimonials/user/1.jpg" alt="Client 1" />
+                                 <img src="assets/img/testimonials/testimonials-3.webp" alt="Client 1" />
                               </div>
                            </div>
                            <div class="icon-box">
                               <!-- SVG Icons here -->
                            </div>
-                           <p class="quote">“Taylor is a professional Designer; he really helped my business by providing
+                           <p class="quote">“Abrar is a professional Designer; he really helped my business by providing
                               value to my business."</p>
                            <h4 class="name">Brandon Fraser</h4>
                            <span class="designation">Senior Software Dev, Cosmic Sport</span>
@@ -758,48 +663,38 @@
 
                      <!-- Form Section -->
                      <div class="tj-contact-form">
-                        <form id="contact-form">
+                        <form id="contact-form" action="{{ route('contactus.submit') }}" method="POST">
+                           @csrf
                            <div class="row gx-3">
                               <div class="col-sm-6">
-                                 <div class="form_group">
-                                    <input type="text" name="conName" id="conName" placeholder="First name" required />
-                                 </div>
+                                    <div class="form_group">
+                                       <input type="text" name="name" id="name" placeholder="First name" required />
+                                    </div>
                               </div>
                               <div class="col-sm-6">
-                                 <div class="form_group">
-                                    <input type="text" name="conLName" id="conLName" placeholder="Last name" required />
-                                 </div>
+                                    <div class="form_group">
+                                       <input type="text" name="subject" id="subject" placeholder="Subject" required />
+                                    </div>
                               </div>
                               <div class="col-sm-6">
-                                 <div class="form_group">
-                                    <input type="email" name="conEmail" id="conEmail" placeholder="Email address" required />
-                                 </div>
+                                    <div class="form_group">
+                                       <input type="email" name="email" id="email" placeholder="Email address" required />
+                                    </div>
                               </div>
                               <div class="col-sm-6">
-                                 <div class="form_group">
-                                    <input type="tel" name="conPhone" id="conPhone" placeholder="Phone number" required />
-                                 </div>
+                                    <div class="form_group">
+                                       <input type="tel" name="phone" id="phone" placeholder="Phone number" required />
+                                    </div>
                               </div>
                               <div class="col-12">
-                                 <div class="form_group">
-                                    <select name="conService" id="conService" class="tj-nice-select" required>
-                                       <option value="" selected disabled>Choose Service</option>
-                                       <option value="branding">Job Recycling</option>
-                                       <option value="web">Web Design</option>
-                                       <option value="uxui">UI/UX Design</option>
-                                       <option value="app">App Design</option>
-                                    </select>
-                                 </div>
+                                    <div class="form_group">
+                                       <textarea name="message" id="message" placeholder="Message" required></textarea>
+                                    </div>
                               </div>
                               <div class="col-12">
-                                 <div class="form_group">
-                                    <textarea name="conMessage" id="conMessage" placeholder="Message" required></textarea>
-                                 </div>
-                              </div>
-                              <div class="col-12">
-                                 <div class="form_btn">
-                                    <button type="submit" class="btn tj-btn-primary">Send Message</button>
-                                 </div>
+                                    <div class="form_btn">
+                                       <button type="submit" class="btn tj-btn-primary">Send Message</button>
+                                    </div>
                               </div>
                            </div>
                         </form>

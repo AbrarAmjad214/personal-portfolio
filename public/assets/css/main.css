@@ -1686,7 +1686,7 @@ body.loaded {
 .portfolio-box .portfolio-item {
 	background-color: var(--tj-theme-accent-2);
 	margin-bottom: 4%;
-	padding: 36px 36px 0 36px;
+	padding: 0;
 	border-radius: 10px;
 	width: 48%;
 }
@@ -1901,7 +1901,7 @@ body.loaded {
 }
 .popup_modal_content {
 	background-color: var(--tj-white);
-	padding-top: 60px;
+	padding: 60px 0;
 }
 .popup_modal_content .portfolio_info {
 	display: -webkit-box;
@@ -3831,6 +3831,27 @@ body.absolute_header .breadcrumb_area {
 	width: 35px;
 	height: 35px;
 	border-radius: 50%;
+}
+
+.works-inner .works-item::after, .works-inner .works-item::before{
+	background: none !important;
+}
+.funfact-area{
+	background-color: var(--tj-black-2);
+	padding: 30px;
+}
+.portfolio-item .image-box{
+    width: 100% !important; /* Sets the width of the container */
+    height: auto !important; /* Sets the height of the container */
+    overflow: hidden; /* Ensures the image does not overflow the container */
+    position: relative;
+}
+
+.portfolio-item .image-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the entire div proportionally */
+    object-position: center; /* Centers the image */
 }
 
 /* END: Modal CSS */

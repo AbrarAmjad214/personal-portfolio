@@ -33,12 +33,13 @@
                </div>
             </div>
             <div class="row">
-               <div class="col-12">
-                  <div class="works-wrapper">
-                     <!-- Education Section -->
-                     <div class="works-content-item">
-                        <h3 class="title wow fadeInLeft" data-wow-delay=".3s">Education</h3>
+               <div class="col-lg-6">
+                  <!-- Education Section -->
+                  <div class="works-content-item">
                         <div class="works-inner wow fadeInUp" data-wow-delay=".4s">
+                           <div class="section-header wow fadeInUp" data-wow-delay=".4s">
+                              <h2 class="section-title"><i class="bx bxs-graduation"></i> My Education</h2>
+                           </div>
                            <div class="works-item">
                               <div class="works-icon">
                                  <i class="fas fa-graduation-cap"></i> <!-- Replaced graduation cap icon -->
@@ -82,10 +83,13 @@
                            </div>
                         </div>
                      </div>
-
-                     <!-- Work Experience Section -->
-                     <div class="works-content-item">
-                        <h3 class="title wow fadeInRight" data-wow-delay=".3s">Work Experience</h3>
+               </div>
+               <div class="col-lg-6">
+                  <!-- Work Experience Section -->
+                  <div class="works-content-item">
+                        <div class="section-header wow fadeInUp" data-wow-delay=".3s">
+                     <h2 class="section-title"><i class="bx bxs-like"></i>My Experience</h2>
+                  </div>
                         <div class="works-inner wow fadeInUp" data-wow-delay=".4s">
                            <div class="works-item">
                               <div class="works-icon">
@@ -109,7 +113,6 @@
                            </div>
                         </div>
                      </div>
-                  </div>
                </div>
             </div>
          </div>

@@ -15,6 +15,11 @@ Route::get('services/{slug}', function (string $slug) {
     return view('service', ['service' => $service]);
 })->name('services.show');
 
+// Case studies that were taken down; keep old links and search results working.
+foreach (['mypos', 'mait', 'multitech-pos', 'glowth', 'storagekeys'] as $removed) {
+    Route::permanentRedirect("portfolio/$removed", '/portfolio');
+}
+
 Route::get('portfolio/{slug}', function (string $slug) {
     $project = collect(config('portfolio.projects'))->firstWhere('slug', $slug) ?? abort(404);
 

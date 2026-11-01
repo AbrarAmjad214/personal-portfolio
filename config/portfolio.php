@@ -74,7 +74,7 @@ return [
             'h1' => 'Laravel development for custom web apps that grow with your business',
             'intro' => [
                 'When an off-the-shelf website builder can\'t do what your business needs, Laravel can. I build custom web applications on Laravel — PHP\'s most popular framework — with clean, maintainable code and a fast front end your customers will enjoy using.',
-                'I\'ve built Laravel websites for a self-storage business with online booking and service companies across Dubai. Whether you need a booking system, a customer portal, an admin dashboard or a dynamic marketing website, I\'ll take it from idea to launch.',
+                'I\'ve built Laravel websites for construction and service companies across Dubai. Whether you need a booking system, a customer portal, an admin dashboard or a dynamic marketing website, I\'ll take it from idea to launch.',
             ],
             'benefits' => [
                 ['title' => 'Built around your workflow', 'text' => 'No fighting plugins or templates — features are built exactly the way your team and customers work.'],
@@ -200,23 +200,6 @@ return [
     */
     'projects' => [
         [
-            'slug' => 'storagekeys',
-            'title' => 'Storagekeys',
-            'category' => 'Laravel',
-            'industry' => 'Self Storage · UAE',
-            'url' => 'https://storagekeys.com/',
-            'image' => 'assets/img/portfolio/storagekeys.webp',
-            'summary' => 'Self-storage platform for Dubai, Sharjah and the UAE with instant quotes, online booking and customer accounts.',
-            'highlights' => ['Free-quote form right in the hero', 'Online booking & shop', 'Customer login and registration'],
-            'about' => [
-                'Storagekeys offers secure, climate-controlled self storage across Dubai, Sharjah and the UAE. Their customers want to know three things fast: what size unit they need, what it costs, and how to book.',
-                'The Laravel platform answers all three. A quote form sits right in the hero, unit types and sizes are explained with a size guide, pricing is transparent, and customers can book online, buy packing products and manage their account.',
-            ],
-            'features' => ['Quote form in the hero section', 'Unit types, sizes and size-finder guide', 'Transparent pricing and introductory offers', 'Online booking and packing-supplies shop', 'Customer login and registration', 'Location pages, blog and FAQs for SEO'],
-            'tech' => ['Laravel', 'PHP', 'JavaScript'],
-            'featured' => true,
-        ],
-        [
             'slug' => 'gulf-cut',
             'title' => 'Gulf Cut',
             'category' => 'Laravel',
@@ -265,7 +248,7 @@ return [
             ],
             'features' => ['Programs: infant, toddler, preschool, kindergarten & OOSC', 'Core values section', 'Activities gallery', 'Playful, colourful design', 'Contact and enquiry section', 'Responsive on every device'],
             'tech' => ['HTML', 'CSS', 'JavaScript', 'PHP'],
-            'featured' => false,
+            'featured' => true,
         ],
     ],
 

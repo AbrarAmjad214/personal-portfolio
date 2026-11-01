@@ -74,7 +74,7 @@ return [
             'h1' => 'Laravel development for custom web apps that grow with your business',
             'intro' => [
                 'When an off-the-shelf website builder can\'t do what your business needs, Laravel can. I build custom web applications on Laravel — PHP\'s most popular framework — with clean, maintainable code and a fast front end your customers will enjoy using.',
-                'I\'ve built Laravel websites for POS software companies in Pakistan and the UAE, an IT company in Abu Dhabi, a self-storage business with online booking and service companies across Dubai. Whether you need a booking system, a customer portal, an admin dashboard or a dynamic marketing website, I\'ll take it from idea to launch.',
+                'I\'ve built Laravel websites for a self-storage business with online booking and service companies across Dubai. Whether you need a booking system, a customer portal, an admin dashboard or a dynamic marketing website, I\'ll take it from idea to launch.',
             ],
             'benefits' => [
                 ['title' => 'Built around your workflow', 'text' => 'No fighting plugins or templates — features are built exactly the way your team and customers work.'],
@@ -99,7 +99,7 @@ return [
             'h1' => 'WordPress websites you can easily manage yourself',
             'intro' => [
                 'WordPress powers a huge share of the web for a reason: once it\'s built properly, you can update pages, add blog posts and change prices yourself — no developer needed for every small change.',
-                'I build WordPress websites with Elementor and custom themes for agencies, travel companies and service businesses in the UAE and beyond. Every site is set up for speed, mobile visitors and search engines from day one, with clear calls to action that turn visitors into enquiries.',
+                'I build WordPress websites with Elementor and custom themes for travel companies and service businesses in the UAE and beyond. Every site is set up for speed, mobile visitors and search engines from day one, with clear calls to action that turn visitors into enquiries.',
             ],
             'benefits' => [
                 ['title' => 'Easy to edit', 'text' => 'Update text, images and pages yourself with a visual editor — I\'ll show you how before handover.'],
@@ -200,57 +200,6 @@ return [
     */
     'projects' => [
         [
-            'slug' => 'mypos',
-            'title' => 'myPOS',
-            'category' => 'Laravel',
-            'industry' => 'POS Software · Pakistan',
-            'url' => 'https://mypos.pk/',
-            'image' => 'assets/img/portfolio/mypos.webp',
-            'summary' => 'Conversion-focused website for a free POS software in Pakistan, with an interactive product demo, a demo-request form in the hero and FBR & PRA messaging.',
-            'highlights' => ['Interactive POS demo in the hero', 'Free-demo form on the first screen', 'Billing-cost calculator and setup builder'],
-            'about' => [
-                'myPOS is a Pakistani point-of-sale and ERP product for retail shops, restaurants, salons, supermarkets and pharmacies, with built-in FBR and PRA digital invoicing. The website has one job: help a business owner see how the product fits their counter, then book a free demo.',
-                'The homepage lets visitors try the product straight away with a live POS demo in the hero, next to a short demo-request form. It then helps them find their fit: choosing their business type, picking the problems slowing them down, working out what manual billing costs them and building their setup in about a minute.',
-            ],
-            'features' => ['Interactive POS demo: tap items, then charge', 'Three-field demo form in the hero', 'Business-type selector for each POS edition', '"What\'s slowing your business down?" section', 'Manual-billing cost calculator', 'One-minute setup builder, plans and comparison'],
-            'tech' => ['Laravel', 'PHP', 'JavaScript'],
-            'featured' => true,
-        ],
-        [
-            'slug' => 'mait',
-            'title' => 'MAIT',
-            'category' => 'Laravel',
-            'industry' => 'IT Services · UAE',
-            'url' => 'https://mait.ae/',
-            'image' => 'assets/img/portfolio/mait.webp',
-            'summary' => 'Premium website for an Abu Dhabi software and IT company, with an animated globe hero and interactive tools that match visitors to the right solution.',
-            'highlights' => ['Problem finder with matched solutions', 'Website health check and price estimator', 'Animated hero with clear consultation CTAs'],
-            'about' => [
-                'MAIT is an Abu Dhabi based IT company serving all seven Emirates since 2014, offering custom software, mobile apps, POS systems, SEO and enterprise platforms. With so many services, the main challenge is helping each visitor quickly find what applies to them.',
-                'The redesigned homepage starts with an animated globe, clear proof points and two direct actions: a free consultation or a phone call. Instead of relying on long service lists, interactive tools do the guiding: visitors tick the problems they recognise and get recommended solutions, check their website health, get a ballpark price and work out what repetitive work costs them each year.',
-            ],
-            'features' => ['Problem finder that recommends matching solutions', 'Website health check', 'Ballpark price estimator', 'Repetitive-work cost calculator', 'Service, enterprise and AI product sections', 'Partner, process, team and FAQ sections'],
-            'tech' => ['Laravel', 'PHP', 'JavaScript'],
-            'featured' => true,
-        ],
-        [
-            'slug' => 'multitech-pos',
-            'title' => 'MultiTech POS',
-            'category' => 'Laravel',
-            'industry' => 'POS & ERP Software · UAE',
-            'url' => 'https://multitechpos.com/',
-            'image' => 'assets/img/portfolio/multitechpos.webp',
-            'summary' => 'Lead-generation website for a UAE POS and ERP company, with a demo form in the hero, a call-back option and a guided path to the right POS for each business.',
-            'highlights' => ['Free-demo form on the first screen', 'Call-back and WhatsApp lead capture', 'Business-type picker and setup builder'],
-            'about' => [
-                'MultiTech POS provides VAT and FTA compliant POS software and ERP systems for retail shops, restaurants, supermarkets, pharmacies and salons across the UAE.',
-                'The redesigned site puts lead capture first: a short demo form sits beside the headline, with call-back and WhatsApp options close by. Visitors then choose their business type, see how quickly they can get started, compare plans for one outlet or several branches and build their setup in about a minute.',
-            ],
-            'features' => ['Demo-request form in the hero', 'Call-back form and WhatsApp options', '"What kind of business do you run?" picker', 'POS solutions by industry', 'Three-step onboarding and plan comparison', 'One-minute setup builder and FAQs'],
-            'tech' => ['Laravel', 'PHP', 'JavaScript'],
-            'featured' => true,
-        ],
-        [
             'slug' => 'storagekeys',
             'title' => 'Storagekeys',
             'category' => 'Laravel',
@@ -265,7 +214,7 @@ return [
             ],
             'features' => ['Quote form in the hero section', 'Unit types, sizes and size-finder guide', 'Transparent pricing and introductory offers', 'Online booking and packing-supplies shop', 'Customer login and registration', 'Location pages, blog and FAQs for SEO'],
             'tech' => ['Laravel', 'PHP', 'JavaScript'],
-            'featured' => false,
+            'featured' => true,
         ],
         [
             'slug' => 'gulf-cut',
@@ -282,24 +231,7 @@ return [
             ],
             'features' => ['Dedicated content for 8 cutting & drilling services', '"Why choose us" trust section', 'Working process from free consultation to completion', 'Sticky call and WhatsApp buttons', 'Projects and blog for local SEO', 'Fast, server-rendered Laravel pages'],
             'tech' => ['Laravel', 'PHP', 'JavaScript'],
-            'featured' => false,
-        ],
-        [
-            'slug' => 'glowth',
-            'title' => 'Glowth',
-            'category' => 'WordPress',
-            'industry' => 'Digital Marketing Agency · UAE',
-            'url' => 'https://glowthdot.com/',
-            'image' => 'assets/img/portfolio/glowth.webp',
-            'summary' => 'Website for a digital marketing agency for beauty salons and aesthetic clinics across Dubai, Abu Dhabi and Sharjah.',
-            'highlights' => ['Free SEO audit lead magnet', 'Location and service pages', 'Clean, conversion-focused layout'],
-            'about' => [
-                'Glowth is a marketing agency that works only with beauty salons, spas and aesthetic clinics in the UAE — offering SEO, Google and Meta ads, websites and an AI booking assistant.',
-                'The WordPress site speaks directly to salon owners: it lists the beauty niches they serve, explains each service, compares Glowth to a typical agency, shows packages priced in AED and offers a free growth audit as the main lead magnet.',
-            ],
-            'features' => ['Free salon & clinic growth audit offer', 'Service sections: SEO, ads, AI booking bot, websites', 'Location targeting for Dubai, Abu Dhabi and Sharjah', 'Agency comparison section', 'Packages priced in AED', 'Built with WordPress & Elementor'],
-            'tech' => ['WordPress', 'Elementor'],
-            'featured' => false,
+            'featured' => true,
         ],
         [
             'slug' => 'bella-luxury-limos',
@@ -316,7 +248,7 @@ return [
             ],
             'features' => ['Premium, brand-matched design', 'Fleet showcase', 'Service areas section', 'Prominent "Book Now" calls to action', 'Client feedback section', 'Responsive on every device'],
             'tech' => ['HTML', 'CSS', 'JavaScript', 'PHP'],
-            'featured' => false,
+            'featured' => true,
         ],
         [
             'slug' => 'little-cruisers',

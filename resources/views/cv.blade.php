@@ -91,7 +91,7 @@
         <h1>{{ strtoupper($p['name']) }}</h1>
         <p class="role">Full-Stack Web Developer · Laravel · WordPress · React</p>
         <p class="summary">
-            Full-stack web developer with {{ $years }}+ years of experience building Laravel web applications and WordPress websites for businesses in the UAE, Pakistan, Canada and the UK. I turn business goals into fast, mobile-friendly websites with clear calls to action — from SaaS marketing sites and booking platforms to lead-generation websites — and own projects end to end, from requirements to deployment and ongoing support.
+            Full-stack web developer with {{ $years }}+ years of experience building Laravel web applications and WordPress websites for businesses in the UAE, Pakistan, Canada and the UK. I turn business goals into fast, mobile-friendly websites with clear calls to action — from booking platforms to lead-generation websites — and own projects end to end, from requirements to deployment and ongoing support.
         </p>
 
         <h2>Experience</h2>

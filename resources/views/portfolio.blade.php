@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Portfolio — Laravel & WordPress Websites')
-@section('description', 'Live websites built by Abrar Amjad for businesses in the UAE, Pakistan, Canada and beyond — Laravel, WordPress and custom PHP projects.')
+@section('description', 'Live websites built by Abrar Amjad for businesses in the UAE, the USA, Canada and beyond — Laravel and custom PHP projects.')
 
 @php
     $projects = collect(config('portfolio.projects'));

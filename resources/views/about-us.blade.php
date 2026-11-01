@@ -1,277 +1,99 @@
-@extends('main')
+@extends('layouts.app')
+
+@section('title', 'About — Laravel & WordPress Developer in Lahore')
+@section('description', 'Abrar Amjad is a full-stack web developer in Lahore with experience building Laravel, React and WordPress websites for businesses in the UAE, Pakistan, Canada and the UK.')
+
+@php($years = now()->year - config('portfolio.career_start'))
+
 @section('content')
+    <x-page-hero eyebrow="About me" title="Laravel & WordPress developer helping businesses grow online.">
+        I'm {{ config('portfolio.name') }}, a {{ strtolower(config('portfolio.role')) }} based in Lahore, Pakistan, with {{ $years }}+ years of professional experience.
+        <x-slot:actions>
+            <x-whatsapp location="about_hero" class="btn-whatsapp"><x-icon name="whatsapp" /> Let's work together</x-whatsapp>
+            <a href="{{ asset(config('portfolio.cv')) }}" class="btn-ghost" download data-track="cv_download" data-track-location="about_hero"><x-icon name="download" class="h-4 w-4" /> Download CV</a>
+        </x-slot:actions>
+    </x-page-hero>
 
-<main class="site-content" id="content">
-      <!-- START: Breadcrumb Area -->
-      <section class="breadcrumb_area" data-bg-image="./assets/img/breadcrumb/breadcrumb-bg.jpg"
-         data-bg-color="#140C1C">
-         <div class="container">
-            <div class="row">
-               <div class="col">
-                  <div class="breadcrumb_content d-flex flex-column align-items-center">
-                     <h2 class="title wow fadeInUp" data-wow-delay=".3s">About Us</h2>
-                     <div class="breadcrumb_navigation wow fadeInUp" data-wow-delay=".5s">
-                        <span><a href="{{ ('/') }}">Home</a></span>
-                        <i class="bx bx-chevron-right"></i>
-                        <span class="current-item">About Us</span>
-                     </div>
-                  </div>
-               </div>
+    {{-- Story --}}
+    <section class="pb-20 sm:pb-28">
+        <div class="container grid items-start gap-12 lg:grid-cols-12">
+            <div class="lg:col-span-5" data-reveal>
+                <img src="{{ asset(config('portfolio.photo')) }}" alt="Portrait of {{ config('portfolio.name') }}" width="480" height="480" loading="lazy" class="aspect-square w-full max-w-md rounded-[32px] border border-white/10 object-cover">
             </div>
-         </div>
-      </section>
-      <!-- END: Breadcrumb Area -->
+            <div class="space-y-5 text-lg leading-relaxed text-muted lg:col-span-7" data-reveal>
+                <h2 class="text-3xl font-bold sm:text-4xl">My story</h2>
+                <p>
+                    I started out building front ends with HTML, CSS and JavaScript, and quickly moved into full-stack work with PHP and Laravel. Today I build everything from marketing websites to custom dashboards and booking systems.
+                </p>
+                <p>
+                    I've worked with development teams at <span class="text-white">BM Group</span> and <span class="text-white">Maxflap Technologies</span> in Lahore, delivering websites for clients in software, construction, storage, marketing, travel and transport — from Dubai and Lahore to Canada and the UK.
+                </p>
+                <p>
+                    What I care about most: websites that load fast, work perfectly on phones, and make it easy for visitors to get in touch. Good design is nice — a site that brings in customers is better.
+                </p>
+                <div class="grid gap-4 pt-4 sm:grid-cols-3">
+                    <div class="card p-5"><p class="font-display text-3xl font-bold text-white">{{ $years }}+</p><p class="mt-1 text-sm">Years experience</p></div>
+                    @foreach (config('portfolio.stats') as $stat)
+                        <div class="card p-5"><p class="font-display text-3xl font-bold text-white">{{ $stat['value'] }}</p><p class="mt-1 text-sm">{{ $stat['label'] }}</p></div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <!-- start: Works Area -->
-      <section class="works-section style-2" id="resume-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="section-header text-center">
-                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Resume</h2>
-                  </div>
-               </div>
+    {{-- Experience & education --}}
+    <section class="py-20 sm:py-28">
+        <div class="container grid gap-14 lg:grid-cols-2">
+            <div>
+                <x-section-heading eyebrow="Experience" title="Where I've worked" />
+                <ol class="mt-10 space-y-5 border-l border-white/10 pl-8">
+                    @foreach (config('portfolio.experience') as $job)
+                        <li class="relative" data-reveal>
+                            <span class="absolute -left-[37px] top-2 h-3 w-3 rounded-full bg-brand-500 ring-4 ring-ink-950"></span>
+                            <p class="text-sm font-medium text-brand-300">{{ $job['period'] }}</p>
+                            <h3 class="mt-1 text-xl font-semibold">{{ $job['role'] }}</h3>
+                            <p class="text-white/70">{{ $job['company'] }}</p>
+                            <p class="mt-3 leading-relaxed text-muted">{{ $job['text'] }}</p>
+                        </li>
+                    @endforeach
+                </ol>
             </div>
-            <div class="row">
-               <div class="col-lg-6">
-                  <!-- Education Section -->
-                  <div class="works-content-item">
-                        <div class="works-inner wow fadeInUp" data-wow-delay=".4s">
-                           <div class="section-header wow fadeInUp" data-wow-delay=".4s">
-                              <h2 class="section-title"><i class="bx bxs-graduation"></i> My Education</h2>
-                           </div>
-                           <div class="works-item">
-                              <div class="works-icon">
-                                 <i class="fas fa-graduation-cap"></i> <!-- Replaced graduation cap icon -->
-                              </div>
-                              <div class="works-content">
-                                 <span class="number">2023 - CONTINUE BSCS Final Year </span>
-                                 <h5 class="title">Bachelor of Computer Science</h5>
-                                 <span class="sub-title">NCBA</span>
-                              </div>
-                           </div>
-                           <div class="works-item">
-                              <div class="works-icon">
-                                 <i class="fas fa-graduation-cap"></i> <!-- Replaced graduation cap icon -->
-                              </div>
-                              <div class="works-content">
-                                 <span class="number">2021 - 2023</span>
-                                 <h5 class="title">BACHELOR</h5>
-                                 <span class="sub-title">ADP CS ( Associate degree program in computer science) from
-                                 ucp( University Of Central Punjab)</span>
-                              </div>
-                           </div>
-                           <div class="works-item">
-                              <div class="works-icon">
-                                 <i class="fas fa-graduation-cap"></i> <!-- Replaced graduation cap icon -->
-                              </div>
-                              <div class="works-content">
-                                 <span class="number">2021</span>
-                                 <h5 class="title">INTERMEDIATE</h5>
-                                 <span class="sub-title">FA from superior collage</span>
-                              </div>
-                           </div>
-                           <div class="works-item">
-                              <div class="works-icon">
-                                 <i class="fas fa-graduation-cap"></i> <!-- Replaced graduation cap icon -->
-                              </div>
-                              <div class="works-content">
-                                 <span class="number">2018</span>
-                                 <h5 class="title">BISE Lahore </h5>
-                                 <span class="sub-title">Matric</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-               </div>
-               <div class="col-lg-6">
-                  <!-- Work Experience Section -->
-                  <div class="works-content-item">
-                        <div class="section-header wow fadeInUp" data-wow-delay=".3s">
-                     <h2 class="section-title"><i class="bx bxs-like"></i>My Experience</h2>
-                  </div>
-                        <div class="works-inner wow fadeInUp" data-wow-delay=".4s">
-                           <div class="works-item">
-                              <div class="works-icon">
-                                 <i class="bx bx-briefcase"></i> <!-- Replaced suitcase icon -->
-                              </div>
-                              <div class="works-content">
-                                 <span class="number">2023 - CONTINUE At BMGROUP,LAHORE</span>
-                                 <h5 class="title">Laravel Developer</h5>
-                                 <span class="sub-title">& WordPress</span>
-                              </div>
-                           </div>
-                           <div class="works-item">
-                              <div class="works-icon">
-                                 <i class="bx bx-briefcase"></i> <!-- Replaced suitcase icon -->
-                              </div>
-                              <div class="works-content">
-                                 <span class="number">2021 - 2023</span>
-                                 <h5 class="title">Front-End Developer</h5>
-                                 <span class="sub-title">MAXFLAPTECHNOLOGIES,LAHORE (2023-2024)</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-               </div>
+            <div>
+                <x-section-heading eyebrow="Education" title="What I've studied" />
+                <ol class="mt-10 space-y-5 border-l border-white/10 pl-8">
+                    @foreach (config('portfolio.education') as $item)
+                        <li class="relative" data-reveal>
+                            <span class="absolute -left-[37px] top-2 h-3 w-3 rounded-full bg-brand-500 ring-4 ring-ink-950"></span>
+                            <p class="text-sm font-medium text-brand-300">{{ $item['period'] }}</p>
+                            <h3 class="mt-1 text-xl font-semibold">{{ $item['title'] }}</h3>
+                            <p class="text-white/70">{{ $item['school'] }}</p>
+                        </li>
+                    @endforeach
+                </ol>
             </div>
-         </div>
-      </section>
-      <!-- end: Works Area -->
+        </div>
+    </section>
 
-      <!-- SKILLS SECTION START -->
-      <section class="skills-section" id="skills-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="section-header text-center">
-                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Skills</h2>
-                     <p class="wow fadeInUp" data-wow-delay=".4s">
-                        I specialize in building dynamic and responsive websites and web applications that provide high user satisfaction.
-                     </p>
-                  </div>
-               </div>
+    {{-- Tech stack --}}
+    <section class="py-20 sm:py-28">
+        <div class="container">
+            <x-section-heading eyebrow="Toolbox" title="Technologies I work with" center>
+                Proven, well-supported tools — so your site is easy to maintain and grow.
+            </x-section-heading>
+            <div class="mt-14 grid gap-5 md:grid-cols-3">
+                @foreach (config('portfolio.stack') as $group => $tools)
+                    <div class="card p-7" data-reveal>
+                        <h3 class="text-lg font-semibold">{{ $group }}</h3>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            @foreach ($tools as $tool)
+                                <span class="chip !px-3.5 !py-1.5 !text-sm">{{ $tool }}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <div class="row">
-               <div class="col-lg-12">
-                  <div class="skills-widget d-flex flex-wrap justify-content-center align-items-center">
-                     <!-- HTML Skill -->
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".3s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/skills-1.svg" alt="HTML Icon" />
-                           </div>
-                           <div class="number">92%</div>
-                        </div>
-                        <p>HTML</p>
-                     </div>
-                     <!-- CSS3 Skill -->
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".4s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/skills-2.svg" alt="CSS3 Icon" />
-                           </div>
-                           <div class="number">80%</div>
-                        </div>
-                        <p>CSS</p>
-                     </div>
-                     <!-- Webflow Skill -->
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".6s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/webflow-1.svg" alt="Webflow Icon" />
-                           </div>
-                           <div class="number">99%</div>
-                        </div>
-                        <p>Bootstrap</p>
-                     </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/wp.svg" alt="">
-                           </div>
-                           <div class="number">99%</div>
-                        </div>
-                        <p>WordPess</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-9 mt-5">
-                  <div class="skills-widget d-flex flex-wrap justify-content-center align-items-center">
-                  <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
-                        
-                        </div>
-                  <!-- Framer Skill -->
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".8s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/framer-1.svg" alt="Framer Icon" />
-                           </div>
-                           <div class="number">93%</div>
-                        </div>
-                        <p>Laravel</p>
-                     </div>
-                     <!-- Javascript Skill -->
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".5s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/skills-3.svg" alt="Javascript Icon" />
-                           </div>
-                           <div class="number">85%</div>
-                        </div>
-                        <p>Javascript</p>
-                     </div>
-                     <!-- ReactJS Skill -->
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/react.svg" alt="ReactJS Icon" />
-                           </div>
-                           <div class="number">89%</div>
-                        </div>
-                        <p>ReactJS</p>
-                     </div>
-                     
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- SKILLS SECTION END -->
+        </div>
+    </section>
 
-      <div class="funfact-area">
-         <div class="row">
-            <div class="col-6 col-lg-3">
-               <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div class="number"><span class="odometer" data-count="2">0</span></div>
-                  <div class="text">Years of <br />Experience</div>
-               </div>
-            </div>
-            <div class="col-6 col-lg-3">
-               <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div class="number"><span class="odometer" data-count="15">0</span>+</div>
-                  <div class="text">Projects <br />Completed</div>
-               </div>
-            </div>
-            <div class="col-6 col-lg-3">
-               <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div class="number"><span class="odometer" data-count="10">0</span>+</div>
-                  <div class="text">Satisfied <br />Clients</div>
-               </div>
-            </div>
-            <div class="col-6 col-lg-3">
-               <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div class="number"><span class="odometer" data-count="6">0</span></div>
-                  <div class="text">Technologies <br />Mastered</div>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <!-- start: Text Area -->
-      <section class="text-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-12">
-                  <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
-                     <div class="heading-left">
-                        <p class="wow fadeInUp" data-wow-delay=".3s">Ready to bring your ideas to life?</p>
-                        <h2 id="anim" class="section-title wow fadeInUp" data-wow-delay=".4s">Let’s Collaborate!</h2>
-                     </div>
-                     <div class="chat-mail wow fadeInRight" data-wow-delay=".5s">
-                        <a class="link" href="mailto:ranabobi30@gmail.com">
-                           ranabobi30@gmail.com <i class="fa-light fa-arrow-right"></i>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- end: Text Area -->
-
-
-
+    @include('partials.testimonials')
 @endsection

@@ -4,36 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactUsMail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
 {
-    public function ContactusEmail(Request $request)
+    public function store(Request $request)
     {
-        try {
-            // Collecting the data from the request using your specified style
-            $data = array(
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'subject' => $request->subject,
-                'message' => $request->message,
-            );
-
-            // Logging the data for debugging purposes
-            Log::info('From Address:', [config('mail.from.address')]);
-            Log::info('Contact Form Data:', $data);
-            
-            // Email will be picked from .env using config()
-            Mail::to(config('mail.from.address'))->send(new ContactUsMail($data));
-
-            return redirect()->back()->with('success', 'Thank you for reaching out to us! We’ll get back to you as soon as possible.');
-
-        } catch (\Exception $e) {
-            // Logging the error for debugging
-            Log::error('Form submission error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Something went wrong. The website was unable to send the details, but you can reach us at <a href="mailto:info@expertdrive.com">info@expertdrive.com</a> or call us at <a href="tel:+442036334942">+44 203 633 4942</a>.');
+        // The hidden "website" field is only filled in by bots — pretend it worked so they move on.
+        if ($request->filled('website')) {
+            return redirect()->route('contact')->withFragment('brief')->with('contact_sent', true);
         }
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:150'],
+            'phone' => ['nullable', 'string', 'max:30'],
+            'service' => ['required', 'string', 'max:100'],
+            'budget' => ['nullable', 'string', 'max:50'],
+            'message' => ['required', 'string', 'min:10', 'max:5000'],
+        ], [
+            'message.min' => 'Please add a little more detail about your project.',
+        ]);
+
+        try {
+            Mail::to(config('portfolio.contact.recipient'))->send(new ContactUsMail($data));
+        } catch (\Throwable $e) {
+            Log::error('Contact form email failed: ' . $e->getMessage());
+
+            return redirect()->route('contact')->withFragment('brief')->withInput()->with('contact_failed', true);
+        }
+
+        return redirect()->route('contact')->withFragment('brief')->with('contact_sent', true);
     }
 }

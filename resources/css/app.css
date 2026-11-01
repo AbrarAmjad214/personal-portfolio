@@ -1,3 +1,121 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        @apply bg-ink-950 font-sans text-[#ECEAF2] antialiased;
+    }
+
+    h1, h2, h3, h4 {
+        @apply font-display tracking-tight text-white;
+    }
+
+    ::selection {
+        @apply bg-brand-500 text-white;
+    }
+
+    :focus-visible {
+        @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-ink-950;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold transition duration-200 active:scale-[.98];
+    }
+
+    .btn-whatsapp {
+        @apply btn bg-whatsapp text-ink-950 shadow-lg shadow-whatsapp/20 hover:bg-whatsapp-dark;
+    }
+
+    .btn-primary {
+        @apply btn bg-brand-500 text-white shadow-lg shadow-brand-500/25 hover:bg-brand-600;
+    }
+
+    .btn-ghost {
+        @apply btn border border-white/15 text-white hover:border-white/40 hover:bg-white/5;
+    }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-brand-300;
+    }
+
+    .card {
+        @apply rounded-3xl border border-white/[0.08] bg-ink-900;
+    }
+
+    .chip {
+        @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#D6D2E0];
+    }
+
+    .field {
+        @apply w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white placeholder:text-muted/70 transition focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30;
+    }
+
+    .nav-link {
+        @apply rounded-full px-4 py-2 text-[15px] font-medium text-muted transition hover:text-white;
+    }
+
+    .nav-link[aria-current='page'] {
+        @apply bg-white/[0.06] text-white;
+    }
+}
+
+.site-header {
+    transition: background-color .3s ease, border-color .3s ease;
+}
+
+.site-header.is-scrolled {
+    background-color: rgb(9 8 13 / .82);
+    border-color: rgb(255 255 255 / .08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.site-header:has([aria-expanded='true']) {
+    background-color: rgb(9 8 13);
+}
+
+.floating-cta {
+    opacity: 0;
+    transform: translateY(16px) scale(.9);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.floating-cta.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+/* Scroll-reveal: only hide content once JS has confirmed it can reveal it again. */
+.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+}
+
+.js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    .js [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

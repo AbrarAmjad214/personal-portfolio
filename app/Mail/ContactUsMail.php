@@ -4,35 +4,29 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class ContactUsMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
-
-    /**
-     * Create a new message instance.
-     *
-     * @param array $data
-     * @return void
-     */
-    public function __construct($data)
+    public function __construct(public array $data)
     {
-        $this->data = $data;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
+    public function envelope(): Envelope
     {
-        return $this->from(config('mail.from.address'))
-                    ->subject('New Contact Message from ' . $this->data['name'] . ' ' )
-                    ->view('contactus') // The Blade view for the email content
-                    ->with('data', $this->data);
+        return new Envelope(
+            replyTo: [new Address($this->data['email'], $this->data['name'])],
+            subject: 'New project enquiry from ' . $this->data['name'],
+        );
+    }
+
+    public function content(): Content
+    {
+        return new Content(view: 'emails.contact');
     }
 }

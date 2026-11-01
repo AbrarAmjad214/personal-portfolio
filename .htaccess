@@ -1,0 +1,6 @@
+# Hosting serves this folder as the document root: send every request to public/
+# so the site works at the domain root and project files stay private.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

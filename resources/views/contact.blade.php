@@ -5,13 +5,16 @@
 @section('hide_cta', '1')
 
 @php
-    $budgets = ['Under $500', '$500 – $1,500', '$1,500 – $5,000', '$5,000+', 'Not sure yet'];
+    $budgets = config('portfolio.budgets');
     $services = [...collect(config('portfolio.services'))->pluck('title'), 'Something else'];
     $firstError = collect(['name', 'email', 'phone', 'service', 'budget', 'message'])->first(fn ($field) => $errors->has($field));
 @endphp
 
 @section('content')
     <x-page-hero eyebrow="Contact" title="Hire a Laravel & WordPress developer for your next project.">
+        <x-slot:breadcrumbs>
+            @include('partials.breadcrumbs', ['crumbs' => ['Home' => route('home'), 'Contact' => url()->current()]])
+        </x-slot:breadcrumbs>
         Tell me about your project and I'll reply {{ config('portfolio.response_time') }} with ideas and a clear quote. No obligation.
     </x-page-hero>
 
@@ -110,7 +113,7 @@
                                 @foreach ($budgets as $budget)
                                     <label class="cursor-pointer">
                                         <input type="radio" name="budget" value="{{ $budget }}" class="peer sr-only" @checked(old('budget') === $budget)>
-                                        <span class="inline-block rounded-full border border-white/10 px-4 py-2 text-sm text-muted transition hover:text-white peer-checked:border-brand-500 peer-checked:bg-brand-500/15 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-400">{{ $budget }}</span>
+                                        <span class="option">{{ $budget }}</span>
                                     </label>
                                 @endforeach
                             </div>

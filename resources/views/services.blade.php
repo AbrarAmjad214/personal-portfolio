@@ -5,6 +5,9 @@
 
 @section('content')
     <x-page-hero eyebrow="Services" title="Laravel & WordPress development services for growing businesses.">
+        <x-slot:breadcrumbs>
+            @include('partials.breadcrumbs', ['crumbs' => ['Home' => route('home'), 'Services' => url()->current()]])
+        </x-slot:breadcrumbs>
         Whether you need a brand-new website, a custom web app or someone to fix the site you already have, I'll help you get it done properly.
         <x-slot:actions>
             <x-whatsapp location="services_hero" class="btn-whatsapp"><x-icon name="whatsapp" /> Get a free quote</x-whatsapp>
@@ -35,7 +38,7 @@
                         <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white">What's included</p>
                         <ul class="mt-4 space-y-3">
                             @foreach ($service['includes'] as $item)
-                                <li class="flex gap-3 text-[#D6D2E0]"><x-icon name="check" class="mt-0.5 h-5 w-5 text-brand-400" /> {{ $item }}</li>
+                                <li class="flex gap-3 text-[#D5DAE2]"><x-icon name="check" class="mt-0.5 h-5 w-5 text-brand-400" /> {{ $item }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -45,6 +48,8 @@
     </section>
 
     @include('partials.process')
+
+    @include('partials.quote-builder')
 
     @include('partials.faq')
 @endsection

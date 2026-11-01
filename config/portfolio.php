@@ -58,6 +58,27 @@ return [
         'Mobile-first & fast',
     ],
 
+    // Homepage "The problem" section: what's costing the visitor customers, and how it gets fixed.
+    'problems' => [
+        ['problem' => 'Slow pages make visitors leave before they read a word.', 'title' => 'Pages that load fast', 'fix' => 'Image optimisation, caching and clean code, so your site feels quick and your Core Web Vitals improve.'],
+        ['problem' => 'Most visitors are on a phone, and the site is hard to use on one.', 'title' => 'Designed for phones first', 'fix' => 'Layouts built and tested on real devices, with buttons and forms that are easy to use with a thumb.'],
+        ['problem' => 'People can\'t tell what to do next, so they do nothing.', 'title' => 'One clear next step', 'fix' => 'Quote forms, call and WhatsApp buttons placed exactly where someone is ready to act.'],
+        ['problem' => 'Customers search for what you sell and find your competitors.', 'title' => 'Set up for search from day one', 'fix' => 'Clean structure, service and location pages, and the technical SEO search engines look for.'],
+    ],
+
+    // Homepage comparison table.
+    'comparison' => [
+        ['label' => 'Who you talk to', 'me' => 'The developer building your site', 'agency' => 'Usually an account manager', 'diy' => 'Nobody, it\'s on you'],
+        ['label' => 'Built around your business', 'me' => 'Yes, designed for your goals', 'agency' => 'Varies by agency', 'diy' => 'Limited by the template'],
+        ['label' => 'Speed & SEO setup', 'me' => 'Included from day one', 'agency' => 'Often an extra', 'diy' => 'Up to you'],
+        ['label' => 'Price', 'me' => 'Clear written quote before we start', 'agency' => 'Usually higher, with overheads', 'diy' => 'Low, plus your own time'],
+        ['label' => 'Changes after launch', 'me' => 'Message me on WhatsApp', 'agency' => 'Tickets and queues', 'diy' => 'Do it yourself'],
+    ],
+
+    // Answer choices in the quote builder and contact form.
+    'timelines' => ['As soon as possible', 'Within a month', '1–3 months', 'Just exploring'],
+    'budgets' => ['Under $500', '$500 – $1,500', '$1,500 – $5,000', '$5,000+', 'Not sure yet'],
+
     /*
     | Each service gets its own page at /services/{slug}. 'projects' picks which
     | portfolio categories to show as examples on that page (empty = all).
@@ -222,7 +243,7 @@ return [
             'category' => 'Custom PHP',
             'industry' => 'Luxury Transport · USA',
             'url' => 'https://bellaluxurylimos.com/',
-            'image' => 'assets/img/portfolio/bellaluxurylimos-1.webp',
+            'image' => 'assets/img/portfolio/bellaluxurylimos.webp',
             'summary' => 'A premium website for a Seattle limousine service, designed to reflect the brand and turn visitors into bookings.',
             'highlights' => ['Prominent "Book Now" calls to action', 'Fleet showcase', 'Elegant, brand-matched design'],
             'about' => [
@@ -239,7 +260,7 @@ return [
             'category' => 'Custom PHP',
             'industry' => 'Childcare · Canada',
             'url' => 'https://littlecruisers.ca/',
-            'image' => 'assets/img/portfolio/littile_caruser-1.webp',
+            'image' => 'assets/img/portfolio/littlecruisers.webp',
             'summary' => 'A warm, friendly website for a Canadian childcare center, showing parents its programs, values and daily activities.',
             'highlights' => ['Program pages from infant to kindergarten', 'Playful, parent-friendly design', 'Clear contact path for enquiries'],
             'about' => [

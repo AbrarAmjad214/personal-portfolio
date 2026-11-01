@@ -43,5 +43,7 @@ Route::get('sitemap.xml', function () {
         ->concat(collect(config('portfolio.services'))->map(fn ($s) => route('services.show', $s['slug'])))
         ->concat(collect(config('portfolio.projects'))->map(fn ($p) => route('portfolio.show', $p['slug'])));
 
-    return response()->view('sitemap', ['urls' => $urls])->header('Content-Type', 'application/xml');
+    return response()
+        ->view('sitemap', ['urls' => $urls, 'updated' => date('Y-m-d', filemtime(config_path('portfolio.php')))])
+        ->header('Content-Type', 'application/xml');
 });

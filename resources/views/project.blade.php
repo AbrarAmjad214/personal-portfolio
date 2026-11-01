@@ -2,6 +2,7 @@
 
 @section('title', $project['title'] . ' — ' . $project['category'] . ' Website Case Study')
 @section('description', $project['summary'])
+@section('og_image', $project['image'])
 
 @php
     $more = collect(config('portfolio.projects'))->where('slug', '!=', $project['slug'])
@@ -26,8 +27,8 @@
     </x-page-hero>
 
     <section class="pb-20">
-        <div class="container">
-            <a href="{{ $project['url'] }}" target="_blank" rel="noopener" class="block overflow-hidden rounded-[28px] border border-white/10 bg-ink-800 shadow-2xl shadow-black/40" data-reveal>
+        <div class="container [perspective:1500px]">
+            <a href="{{ $project['url'] }}" target="_blank" rel="noopener" class="frame-3d block overflow-hidden rounded-[28px] border border-white/10 bg-ink-800" data-depth>
                 <img src="{{ asset($project['image']) }}" alt="{{ $project['title'] }} website homepage designed and developed by {{ config('portfolio.name') }}" width="1200" height="750" fetchpriority="high" class="w-full">
             </a>
         </div>
@@ -45,7 +46,7 @@
                 <h2 class="mt-12 text-3xl font-bold">What I built</h2>
                 <ul class="mt-6 grid gap-3 sm:grid-cols-2">
                     @foreach ($project['features'] as $feature)
-                        <li class="flex gap-3 text-[#D6D2E0]"><x-icon name="check" class="mt-0.5 h-5 w-5 text-brand-400" /> {{ $feature }}</li>
+                        <li class="flex gap-3 text-[#D5DAE2]"><x-icon name="check" class="mt-0.5 h-5 w-5 text-brand-400" /> {{ $feature }}</li>
                     @endforeach
                 </ul>
             </div>

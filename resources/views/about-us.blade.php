@@ -7,6 +7,9 @@
 
 @section('content')
     <x-page-hero eyebrow="About me" title="Laravel & WordPress developer helping businesses grow online.">
+        <x-slot:breadcrumbs>
+            @include('partials.breadcrumbs', ['crumbs' => ['Home' => route('home'), 'About' => url()->current()]])
+        </x-slot:breadcrumbs>
         I'm {{ config('portfolio.name') }}, a {{ strtolower(config('portfolio.role')) }} based in Lahore, Pakistan, with {{ $years }}+ years of professional experience.
         <x-slot:actions>
             <x-whatsapp location="about_hero" class="btn-whatsapp"><x-icon name="whatsapp" /> Let's work together</x-whatsapp>
@@ -26,7 +29,7 @@
                     I started out building front ends with HTML, CSS and JavaScript, and quickly moved into full-stack work with PHP and Laravel. Today I build everything from marketing websites to custom dashboards and booking systems.
                 </p>
                 <p>
-                    I've worked with development teams at <span class="text-white">BM Group</span> and <span class="text-white">Maxflap Technologies</span> in Lahore, delivering websites for clients in software, construction, storage, marketing, travel and transport — from Dubai and Lahore to Canada and the UK.
+                    I've worked with development teams at <span class="text-white">BM Group</span> and <span class="text-white">Maxflap Technologies</span> in Lahore, delivering websites for clients in construction, childcare, travel, recycling and transport — from Dubai and Lahore to Canada and the UK.
                 </p>
                 <p>
                     What I care about most: websites that load fast, work perfectly on phones, and make it easy for visitors to get in touch. Good design is nice — a site that brings in customers is better.

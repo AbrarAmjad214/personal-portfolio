@@ -1,8 +1,9 @@
 {{-- Closing call to action shown at the bottom of every page --}}
 <section class="py-20 sm:py-28">
     <div class="container">
-        <div class="relative overflow-hidden rounded-[32px] border border-brand-500/30 bg-gradient-to-br from-brand-600/30 via-ink-900 to-ink-900 px-6 py-14 text-center sm:px-12 sm:py-20" data-reveal>
-            <div class="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-brand-500/30 blur-[100px]"></div>
+        <div class="relative overflow-hidden rounded-[32px] border border-white/[0.1] bg-ink-900 px-6 py-14 text-center sm:px-12 sm:py-20" data-reveal>
+            <div class="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-brand-500/25 blur-[100px]"></div>
+            <div class="streak top-0"></div>
             <div class="relative mx-auto max-w-2xl">
                 @if (config('portfolio.available'))
                     <p class="inline-flex items-center gap-2 rounded-full border border-whatsapp/30 bg-whatsapp/10 px-4 py-1.5 text-sm font-medium text-whatsapp">

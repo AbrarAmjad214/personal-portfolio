@@ -22,12 +22,12 @@ if (menuButton && menu) {
 
 // Header gets a solid background once the page scrolls
 const header = document.querySelector('[data-header]');
-const floatingCta = document.querySelector('[data-floating-cta]');
+const floatingCtas = document.querySelectorAll('[data-floating-cta]');
 
 const onScroll = () => {
     const scrolled = window.scrollY > 24;
     header?.classList.toggle('is-scrolled', scrolled);
-    floatingCta?.classList.toggle('is-visible', window.scrollY > 500);
+    floatingCtas.forEach((cta) => cta.classList.toggle('is-visible', window.scrollY > 500));
 };
 
 onScroll();
@@ -49,6 +49,96 @@ if ('IntersectionObserver' in window) {
 } else {
     revealItems.forEach((item) => item.classList.add('is-visible'));
 }
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Hero 3D scene: loaded after the page is up so it never delays the copy or the calls to action
+const sceneHost = document.querySelector('[data-hero-scene]');
+
+if (sceneHost && !prefersReducedMotion && !navigator.connection?.saveData) {
+    const startScene = () => {
+        import('./hero-scene.js')
+            .then(({ startHeroScene }) => startHeroScene(sceneHost))
+            .catch(() => sceneHost.classList.remove('is-ready'));
+    };
+    const whenIdle = () => {
+        if (window.requestIdleCallback) requestIdleCallback(startScene, { timeout: 1500 });
+        else setTimeout(startScene, 300);
+    };
+
+    if (document.readyState === 'complete') whenIdle();
+    else window.addEventListener('load', whenIdle, { once: true });
+}
+
+if (!prefersReducedMotion) {
+    // Browser frames settle flat as they scroll into view
+    const frames = [...document.querySelectorAll('[data-depth]')];
+
+    if (frames.length) {
+        let queued = false;
+
+        const updateFrames = () => {
+            queued = false;
+            const height = window.innerHeight;
+            frames.forEach((frame) => {
+                const { top, bottom } = frame.parentElement.getBoundingClientRect();
+                if (bottom < 0 || top > height) return;
+                const progress = Math.min(1, Math.max(0, (height - top) / (height * 0.75)));
+                frame.style.setProperty('--p', progress.toFixed(3));
+            });
+        };
+        const queueUpdate = () => {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(updateFrames);
+        };
+
+        updateFrames();
+        window.addEventListener('scroll', queueUpdate, { passive: true });
+        window.addEventListener('resize', queueUpdate, { passive: true });
+    }
+
+    // Pointer tilt
+    if (window.matchMedia('(pointer: fine)').matches) {
+        document.querySelectorAll('[data-tilt]').forEach((item) => {
+            item.addEventListener('pointermove', (event) => {
+                const { left, top, width, height } = item.getBoundingClientRect();
+                item.style.setProperty('--ry', `${(((event.clientX - left) / width) - 0.5) * 9}deg`);
+                item.style.setProperty('--rx', `${(0.5 - ((event.clientY - top) / height)) * 9}deg`);
+            });
+            item.addEventListener('pointerleave', () => {
+                item.style.removeProperty('--rx');
+                item.style.removeProperty('--ry');
+            });
+        });
+    }
+}
+
+// Quote builder: turns the visitor's answers into a pre-filled WhatsApp message
+document.querySelectorAll('[data-quote-builder]').forEach((builder) => {
+    const link = builder.querySelector('[data-quote-link]');
+    const preview = builder.querySelector('[data-quote-preview]');
+    const base = link.href.split('?')[0];
+
+    const update = () => {
+        const answer = (name) => builder.querySelector(`input[name="${name}"]:checked`)?.value;
+        const need = answer('quote_need');
+        const timeline = answer('quote_timeline');
+        const budget = answer('quote_budget');
+
+        const lines = [`Hi Abrar, I'd like a quote for: ${need || 'a new website'}.`];
+        if (timeline) lines.push(`Timeline: ${timeline}.`);
+        if (budget) lines.push(`Budget: ${budget}.`);
+        lines.push('My business is: ');
+
+        const message = lines.join('\n');
+        link.href = `${base}?text=${encodeURIComponent(message)}`;
+        preview.textContent = message;
+    };
+
+    builder.addEventListener('change', update);
+    update();
+});
 
 // Portfolio filter
 const filterButtons = document.querySelectorAll('[data-filter]');

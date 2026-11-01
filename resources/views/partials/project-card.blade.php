@@ -1,7 +1,7 @@
 {{-- Expects $project from config('portfolio.projects') --}}
 <article class="card group flex flex-col overflow-hidden" data-category="{{ \Illuminate\Support\Str::slug($project['category']) }}" data-reveal>
-    <a href="{{ route('portfolio.show', $project['slug']) }}" class="relative block aspect-[16/10] overflow-hidden bg-ink-800" aria-label="{{ $project['title'] }} case study">
-        <img src="{{ asset($project['image']) }}" alt="{{ $project['title'] }} website homepage" width="1200" height="750" loading="lazy" decoding="async" class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.04]">
+    <a href="{{ route('portfolio.show', $project['slug']) }}" class="tilt relative block aspect-[16/10] overflow-hidden bg-ink-800" data-tilt aria-label="{{ $project['title'] }} case study">
+        <img src="{{ asset($project['image']) }}" alt="{{ $project['title'] }} website homepage, built by {{ config('portfolio.name') }}" width="1200" height="750" loading="lazy" decoding="async" class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.04]">
     </a>
 
     <div class="flex flex-1 flex-col p-7">
@@ -12,7 +12,7 @@
         @if (! empty($detailed))
             <ul class="mt-5 space-y-2">
                 @foreach ($project['highlights'] as $highlight)
-                    <li class="flex gap-3 text-[15px] text-[#D6D2E0]"><x-icon name="check" class="mt-0.5 h-[18px] w-[18px] text-brand-400" /> {{ $highlight }}</li>
+                    <li class="flex gap-3 text-[15px] text-[#D5DAE2]"><x-icon name="check" class="mt-0.5 h-[18px] w-[18px] text-brand-400" /> {{ $highlight }}</li>
                 @endforeach
             </ul>
         @endif

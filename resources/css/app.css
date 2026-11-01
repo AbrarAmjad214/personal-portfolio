@@ -1,5 +1,6 @@
 @import '@fontsource-variable/inter';
-@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/jetbrains-mono';
 
 @tailwind base;
 @tailwind components;
@@ -12,15 +13,16 @@
     }
 
     body {
-        @apply bg-ink-950 font-sans text-[#ECEAF2] antialiased;
+        @apply bg-ink-950 font-sans text-[#E9ECF1] antialiased;
     }
 
     h1, h2, h3, h4 {
         @apply font-display tracking-tight text-white;
+        font-stretch: 108%;
     }
 
     ::selection {
-        @apply bg-brand-500 text-white;
+        @apply bg-brand-500 text-ink-950;
     }
 
     :focus-visible {
@@ -34,27 +36,32 @@
     }
 
     .btn-whatsapp {
-        @apply btn bg-whatsapp text-ink-950 shadow-lg shadow-whatsapp/20 hover:bg-whatsapp-dark;
+        @apply btn bg-whatsapp text-ink-950 shadow-[0_10px_40px_-8px] shadow-whatsapp/50 hover:bg-whatsapp-dark;
     }
 
     .btn-primary {
-        @apply btn bg-brand-500 text-white shadow-lg shadow-brand-500/25 hover:bg-brand-600;
+        @apply btn bg-brand-400 text-ink-950 shadow-[0_10px_40px_-8px] shadow-brand-500/50 hover:bg-brand-300;
     }
 
     .btn-ghost {
-        @apply btn border border-white/15 text-white hover:border-white/40 hover:bg-white/5;
+        @apply btn border border-white/15 bg-white/[0.02] text-white backdrop-blur hover:border-white/40 hover:bg-white/5;
     }
 
     .eyebrow {
-        @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-brand-300;
+        @apply inline-flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-brand-300;
+    }
+
+    .eyebrow::before {
+        content: '';
+        @apply h-px w-8 bg-gradient-to-r from-transparent to-brand-400;
     }
 
     .card {
-        @apply rounded-3xl border border-white/[0.08] bg-ink-900;
+        @apply rounded-3xl border border-white/[0.08] bg-ink-900/90;
     }
 
     .chip {
-        @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#D6D2E0];
+        @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#D5DAE2];
     }
 
     .field {
@@ -68,6 +75,10 @@
     .nav-link[aria-current='page'] {
         @apply bg-white/[0.06] text-white;
     }
+
+    .option {
+        @apply inline-block rounded-full border border-white/10 px-4 py-2 text-sm text-muted transition hover:text-white peer-checked:border-brand-400 peer-checked:bg-brand-400/15 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-400;
+    }
 }
 
 .site-header {
@@ -75,14 +86,14 @@
 }
 
 .site-header.is-scrolled {
-    background-color: rgb(9 8 13 / .82);
+    background-color: rgb(6 8 12 / .78);
     border-color: rgb(255 255 255 / .08);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 }
 
 .site-header:has([aria-expanded='true']) {
-    background-color: rgb(9 8 13);
+    background-color: rgb(6 8 12);
 }
 
 .floating-cta {
@@ -98,15 +109,161 @@
     pointer-events: auto;
 }
 
-/* Scroll-reveal: only hide content once JS has confirmed it can reveal it again. */
+/* Film grain over the whole page */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hero: the WebGL scene fades in over a CSS 3D stack of the same screenshots */
+.hero-canvas {
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+.is-ready > .hero-canvas {
+    opacity: 1;
+}
+
+.is-ready > .hero-fallback {
+    opacity: 0;
+}
+
+.hero-fallback {
+    perspective: 1400px;
+    transition: opacity 1s ease;
+}
+
+.hero-fallback-stack {
+    transform-style: preserve-3d;
+    transform: rotateY(-24deg) rotateX(4deg);
+}
+
+.hero-fallback img {
+    position: absolute;
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 18px;
+    border: 1px solid rgb(255 255 255 / .12);
+    box-shadow: 0 40px 90px -20px rgb(0 0 0 / .9), -30px 0 90px -40px rgb(95 212 230 / .4), 30px 0 90px -40px rgb(245 150 42 / .45);
+}
+
+/* Readability scrims between the scene and the copy */
+.hero-scrim {
+    --hero-clear: 68vw;
+    background:
+        linear-gradient(to top, rgb(6 8 12) 0%, rgb(6 8 12 / 0) 8%),
+        linear-gradient(to top, rgb(6 8 12 / 0) var(--hero-clear), rgb(6 8 12 / .97) calc(var(--hero-clear) + 12vw));
+}
+
+@media (min-width: 640px) {
+    .hero-scrim { --hero-clear: 52vw; }
+}
+
+@media (min-width: 1024px) {
+    .hero-scrim {
+        background:
+            linear-gradient(to top, rgb(6 8 12) 0%, rgb(6 8 12 / 0) 22%),
+            linear-gradient(to right, rgb(6 8 12) 0%, rgb(6 8 12 / .92) 34%, rgb(6 8 12 / 0) 56%),
+            radial-gradient(120% 120% at 70% 50%, rgb(6 8 12 / 0) 55%, rgb(6 8 12 / .7) 100%);
+    }
+}
+
+/* Opening shot: letterbox bars slide away and the copy rises into place */
+.letterbox::before,
+.letterbox::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    z-index: 20;
+    height: 9vh;
+    background: #000;
+    pointer-events: none;
+    animation: letterbox-top 1.5s cubic-bezier(.7, 0, .2, 1) .15s both;
+}
+
+.letterbox::before { top: 0; }
+
+.letterbox::after {
+    bottom: 0;
+    animation-name: letterbox-bottom;
+}
+
+@keyframes letterbox-top { to { transform: translateY(-100%); } }
+@keyframes letterbox-bottom { to { transform: translateY(100%); } }
+
+.rise {
+    animation: rise 1s cubic-bezier(.2, .7, .2, 1) both;
+    animation-delay: var(--delay, 0ms);
+}
+
+@keyframes rise {
+    from { opacity: .001; transform: translateY(26px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* Anamorphic light streak behind inner-page heroes and closing panels */
+.streak {
+    position: absolute;
+    left: 50%;
+    height: 2px;
+    width: min(1100px, 130%);
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(95 212 230 / .55) 28%, rgb(255 203 135 / .95) 50%, rgb(245 150 42 / .5) 72%, transparent);
+    box-shadow: 0 0 34px 5px rgb(245 150 42 / .28), 0 0 90px 14px rgb(95 212 230 / .1);
+}
+
+/* Client names drift past like end credits */
+.credits {
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.credits-track {
+    animation: credits 42s linear infinite;
+}
+
+.credits:hover .credits-track {
+    animation-play-state: paused;
+}
+
+@keyframes credits { to { transform: translateX(-50%); } }
+
+/* Browser frame that settles flat as it scrolls into view (--p is set from JS) */
+.frame-3d {
+    transform: perspective(1500px) rotateX(calc((1 - var(--p, 1)) * 16deg)) rotateY(calc((1 - var(--p, 1)) * var(--swing, -6deg))) scale(calc(.93 + var(--p, 1) * .07));
+    transform-origin: 50% 80%;
+    box-shadow: 0 50px 110px -30px rgb(0 0 0 / .95), -40px 10px 110px -60px rgb(95 212 230 / .55), 40px 10px 110px -60px rgb(245 150 42 / .65);
+    will-change: transform;
+}
+
+/* Pointer tilt (--rx / --ry are set from JS) */
+.tilt {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform .25s ease-out;
+}
+
+html:not(.js) .js-only { display: none; }
+
+/* Focus pull: only hide content once JS has confirmed it can reveal it again. */
 .js [data-reveal] {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+    filter: blur(8px);
+    transform: translateY(28px);
+    transition: opacity .8s ease, filter .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
 }
 
 .js [data-reveal].is-visible {
     opacity: 1;
+    filter: none;
     transform: none;
 }
 
@@ -115,7 +272,17 @@
 
     .js [data-reveal] {
         opacity: 1;
+        filter: none;
         transform: none;
         transition: none;
     }
+
+    .letterbox::before,
+    .letterbox::after { display: none; }
+
+    .rise,
+    .credits-track { animation: none; }
+
+    .frame-3d,
+    .tilt { transform: none; }
 }

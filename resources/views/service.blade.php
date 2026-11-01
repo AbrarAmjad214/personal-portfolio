@@ -4,8 +4,9 @@
 @section('description', $service['meta'])
 
 @php
+    // Closest matches first, topped up with other live projects.
     $examples = collect(config('portfolio.projects'))
-        ->when($service['projects'], fn ($projects) => $projects->whereIn('category', $service['projects']))
+        ->sortByDesc(fn ($project) => in_array($project['category'], $service['projects']))
         ->take(3);
     $others = collect(config('portfolio.services'))->where('slug', '!=', $service['slug']);
 @endphp
@@ -35,7 +36,7 @@
                 <h2 class="text-xl font-semibold">What's included</h2>
                 <ul class="mt-5 space-y-3">
                     @foreach ($service['includes'] as $item)
-                        <li class="flex gap-3 text-[#D6D2E0]"><x-icon name="check" class="mt-0.5 h-5 w-5 text-brand-400" /> {{ $item }}</li>
+                        <li class="flex gap-3 text-[#D5DAE2]"><x-icon name="check" class="mt-0.5 h-5 w-5 text-brand-400" /> {{ $item }}</li>
                     @endforeach
                 </ul>
             </div>
@@ -54,7 +55,7 @@
     @if ($examples->isNotEmpty())
         <section id="examples" class="scroll-mt-24 py-20 sm:py-28">
             <div class="container">
-                <x-section-heading eyebrow="Examples" :title="'Recent ' . ($service['projects'] ? implode(' & ', $service['projects']) . ' ' : '') . 'projects'">
+                <x-section-heading eyebrow="Examples" title="Recent projects">
                     Live websites I've built — click through and try them yourself.
                 </x-section-heading>
                 <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -67,6 +68,8 @@
     @endif
 
     @include('partials.process')
+
+    @include('partials.quote-builder', ['preselect' => $service['title']])
 
     @include('partials.faq', ['faqs' => $service['faq']])
 

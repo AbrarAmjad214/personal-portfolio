@@ -2,89 +2,157 @@
 
 @php
     $years = now()->year - config('portfolio.career_start');
-    $featured = collect(config('portfolio.projects'))->where('featured', true);
+    $projects = collect(config('portfolio.projects'));
+    $featured = $projects->where('featured', true)->values();
+    $clients = $projects->pluck('title')->concat(collect(config('portfolio.cv_projects'))->pluck('title'));
+    $stats = [['value' => $years . '+', 'label' => 'Years of experience'], ...config('portfolio.stats')];
 @endphp
 
 @section('content')
-    {{-- Hero --}}
-    <section class="relative overflow-hidden pb-20 pt-32 sm:pt-40 lg:pb-28">
-        <div class="pointer-events-none absolute -right-40 top-0 h-[520px] w-[720px] rounded-full bg-brand-500/25 blur-[140px]"></div>
-        <div class="pointer-events-none absolute -left-40 top-40 h-[360px] w-[480px] rounded-full bg-whatsapp/10 blur-[140px]"></div>
+    {{-- Hero: opening shot --}}
+    <section class="letterbox relative isolate flex min-h-[100svh] flex-col overflow-hidden">
+        <div class="absolute inset-0 -z-10" data-hero-scene='@json($featured->take(3)->map(fn ($p) => asset($p['image']))->values())'>
+            <div class="hero-fallback absolute bottom-[5%] left-[8%] h-[24%] w-[84%] lg:bottom-[18%] lg:left-auto lg:right-[4%] lg:h-[62%] lg:w-[44%]" aria-hidden="true">
+                <div class="hero-fallback-stack relative h-full w-full">
+                    @foreach ($featured->take(3)->reverse()->values() as $project)
+                        <img src="{{ asset($project['image']) }}" alt="" width="1200" height="750" decoding="async" style="top: {{ (2 - $loop->index) * -9 }}%; left: {{ (2 - $loop->index) * 11 }}%; transform: translateZ({{ $loop->index * 90 - 180 }}px); filter: brightness({{ 0.5 + $loop->index * 0.25 }})">
+                    @endforeach
+                </div>
+            </div>
+            <canvas class="hero-canvas absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+            <div class="hero-scrim absolute inset-0"></div>
+        </div>
 
-        <div class="container relative grid items-center gap-14 lg:grid-cols-12">
-            <div class="lg:col-span-7" data-reveal>
+        <div class="container flex flex-1 items-start pb-[72vw] pt-28 sm:pb-[56vw] sm:pt-32 lg:items-center lg:pb-16 lg:pt-28">
+            <div class="max-w-[600px]">
                 @if (config('portfolio.available'))
-                    <p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm font-medium text-[#D6D2E0]">
+                    <p class="rise inline-flex items-center gap-2 rounded-full border border-white/10 bg-ink-950/50 px-4 py-1.5 text-sm font-medium text-[#D5DAE2] backdrop-blur">
                         <span class="h-2 w-2 animate-pulse rounded-full bg-whatsapp"></span> Available for new projects
                     </p>
                 @endif
 
-                <h1 class="mt-6">
-                    <span class="block font-sans text-base font-semibold uppercase tracking-[0.14em] text-brand-300">Laravel & WordPress Developer · Lahore, Pakistan</span>
-                    <span class="mt-4 block text-[40px] font-bold leading-[1.05] sm:text-6xl lg:text-[68px]">Websites that look great <span class="bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent">and win you clients.</span></span>
+                <h1 class="rise mt-6" style="--delay: 120ms">
+                    <span class="block font-mono text-xs font-medium uppercase tracking-[0.2em] text-brand-300 sm:text-sm">Laravel &amp; WordPress Developer · Lahore, Pakistan</span>
+                    <span class="mt-4 block text-[42px] font-extrabold leading-[1.02] sm:text-6xl lg:text-[68px]">Websites built to <span class="bg-gradient-to-r from-brand-200 via-brand-400 to-brand-600 bg-clip-text text-transparent">win you clients.</span></span>
                 </h1>
 
-                <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-                    I'm {{ config('portfolio.name') }}, a full-stack developer building fast, mobile-friendly websites and web apps with Laravel, React and WordPress — for businesses in the UAE, Pakistan, Canada and the UK.
+                <p class="rise mt-6 max-w-xl text-lg leading-relaxed text-[#C5CBD5] sm:text-xl" style="--delay: 240ms">
+                    Fast, mobile-friendly websites and custom web apps for businesses in the UAE, Canada, the USA and the UK — from a developer you talk to directly.
                 </p>
 
-                <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-                    <x-whatsapp location="hero" class="btn-whatsapp">
-                        <x-icon name="whatsapp" /> Get a free quote on WhatsApp
-                    </x-whatsapp>
-                    <a href="{{ route('portfolio') }}" class="btn-ghost" data-track="work_click" data-track-location="hero">
-                        See my work <x-icon name="arrow-right" class="h-4 w-4" />
+                <div class="rise mt-8 flex flex-col gap-3 sm:flex-row" style="--delay: 360ms">
+                    <a href="#quote" class="btn-whatsapp" data-track="quote_click" data-track-location="hero">
+                        <x-icon name="whatsapp" /> Get a free quote
+                    </a>
+                    <a href="#work" class="btn-ghost" data-track="work_click" data-track-location="hero">
+                        See live projects <x-icon name="arrow-right" class="h-4 w-4" />
                     </a>
                 </div>
 
-                <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+                <ul class="rise mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#C5CBD5]" style="--delay: 480ms">
                     @foreach (config('portfolio.promises') as $promise)
                         <li class="inline-flex items-center gap-2"><x-icon name="check" class="h-4 w-4 text-whatsapp" /> {{ $promise }}</li>
                     @endforeach
                 </ul>
             </div>
+        </div>
+    </section>
 
-            <div class="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none" data-reveal>
-                <div class="relative mx-auto aspect-square w-full max-w-[400px]">
-                    <div class="absolute inset-0 rotate-6 rounded-[40px] bg-gradient-to-br from-brand-500 to-brand-600 opacity-80"></div>
-                    <img src="{{ asset(config('portfolio.photo')) }}" alt="Portrait of {{ config('portfolio.name') }}" width="400" height="400" fetchpriority="high" class="relative h-full w-full rounded-[40px] border border-white/10 object-cover">
-
-                    <div class="absolute -bottom-6 -left-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-ink-900/90 px-4 py-3 shadow-2xl backdrop-blur sm:-left-10">
-                        <span class="font-display text-3xl font-bold text-white">{{ $years }}+</span>
-                        <span class="text-sm leading-tight text-muted">years building<br>for clients</span>
+    {{-- Proof: numbers and client names --}}
+    <section aria-label="Experience and clients" class="relative border-y border-white/[0.06] bg-ink-900/60">
+        <div class="container py-9">
+            <dl class="grid grid-cols-3 gap-4 text-center">
+                @foreach ($stats as $stat)
+                    <div class="flex flex-col-reverse gap-1">
+                        <dt class="text-xs text-muted sm:text-sm">{{ $stat['label'] }}</dt>
+                        <dd class="font-display text-3xl font-extrabold text-white sm:text-5xl">{{ $stat['value'] }}</dd>
                     </div>
-                    <div class="absolute -right-3 top-8 rounded-2xl border border-white/10 bg-ink-900/90 px-4 py-3 shadow-2xl backdrop-blur sm:-right-8">
-                        <p class="text-xs uppercase tracking-wider text-muted">Stack</p>
-                        <p class="mt-1 font-semibold text-white">Laravel · React · WP</p>
+                @endforeach
+            </dl>
+        </div>
+        <div class="border-t border-white/[0.06] py-5">
+            <div class="container">
+                <h2 class="sr-only">Websites I've built for</h2>
+                <div class="credits overflow-hidden">
+                    <div class="credits-track flex w-max items-center">
+                        @foreach ([false, true] as $duplicate)
+                            <ul class="flex items-center" @if ($duplicate) aria-hidden="true" @endif>
+                                @foreach ($clients as $client)
+                                    <li class="whitespace-nowrap px-7 font-display text-base font-semibold text-white/55">{{ $client }}</li>
+                                @endforeach
+                            </ul>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Social proof: clients --}}
-    <section class="border-y border-white/[0.06] bg-ink-900/50 py-10">
+    {{-- The problem and the fix --}}
+    <section class="py-20 sm:py-28">
         <div class="container">
-            <p class="text-center text-sm font-medium uppercase tracking-[0.14em] text-muted">Websites I've built for</p>
-            <ul class="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-                @foreach (config('portfolio.projects') as $project)
-                    <li class="font-display text-lg font-semibold text-white/60 sm:text-xl">{{ $project['title'] }}</li>
+            <x-section-heading eyebrow="The problem" title="Most websites look fine and still lose customers.">
+                Visitors decide in seconds. These are the problems I fix first, so more of them get in touch.
+            </x-section-heading>
+
+            <ul class="mt-14 grid gap-5 md:grid-cols-2">
+                @foreach (config('portfolio.problems') as $item)
+                    <li class="card p-7 sm:p-8" data-reveal style="transition-delay: {{ $loop->index * 70 }}ms">
+                        <p class="flex items-start gap-3 text-[15px] text-muted">
+                            <x-icon name="x" class="mt-0.5 h-5 w-5 text-red-400/80" /> {{ $item['problem'] }}
+                        </p>
+                        <h3 class="mt-4 flex items-start gap-3 text-xl font-semibold leading-snug">
+                            <x-icon name="check" class="mt-1 h-5 w-5 text-whatsapp" /> {{ $item['title'] }}
+                        </h3>
+                        <p class="mt-3 pl-8 leading-relaxed text-muted">{{ $item['fix'] }}</p>
+                    </li>
                 @endforeach
             </ul>
         </div>
     </section>
 
-    {{-- Stats --}}
-    <section class="py-16">
+    {{-- Selected work: stacked reel --}}
+    <section id="work" class="scroll-mt-20 py-20 sm:py-28">
         <div class="container">
-            <dl class="grid gap-4 sm:grid-cols-3">
-                @foreach ([['value' => $years . '+', 'label' => 'Years of experience'], ...config('portfolio.stats')] as $stat)
-                    <div class="card flex flex-col-reverse gap-1 p-6 text-center" data-reveal>
-                        <dt class="text-sm text-muted">{{ $stat['label'] }}</dt>
-                        <dd class="font-display text-4xl font-bold text-white sm:text-5xl">{{ $stat['value'] }}</dd>
-                    </div>
+            <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                <x-section-heading eyebrow="Selected work" title="Real websites, live right now.">
+                    Don't take my word for it. Open any of these on your own phone and try them.
+                </x-section-heading>
+                <a href="{{ route('portfolio') }}" class="btn-ghost shrink-0 self-start md:self-auto" data-reveal>View all projects <x-icon name="arrow-right" class="h-4 w-4" /></a>
+            </div>
+
+            <div class="mt-14 space-y-8">
+                @foreach ($featured as $project)
+                    <article class="card relative grid gap-8 overflow-hidden p-5 sm:p-8 lg:sticky lg:grid-cols-12 lg:items-center lg:gap-12 lg:p-10" style="top: {{ 96 + $loop->index * 16 }}px">
+                        <div class="[perspective:1500px] lg:col-span-7 @if ($loop->even) lg:order-last @endif">
+                            <a href="{{ route('portfolio.show', $project['slug']) }}" class="frame-3d block overflow-hidden rounded-2xl border border-white/10 bg-ink-800" data-depth style="--swing: {{ $loop->even ? '6deg' : '-6deg' }}" aria-label="{{ $project['title'] }} case study">
+                                <span class="flex h-8 items-center gap-1.5 border-b border-white/10 bg-ink-900 px-4" aria-hidden="true">
+                                    <span class="h-2 w-2 rounded-full bg-white/20"></span><span class="h-2 w-2 rounded-full bg-white/20"></span><span class="h-2 w-2 rounded-full bg-white/20"></span>
+                                    <span class="ml-3 truncate font-mono text-[11px] text-muted">{{ preg_replace('#^https?://(www\.)?|/$#', '', $project['url']) }}</span>
+                                </span>
+                                <img src="{{ asset($project['image']) }}" alt="{{ $project['title'] }} website homepage, built by {{ config('portfolio.name') }}" width="1200" height="750" loading="lazy" decoding="async" class="aspect-[16/10] w-full object-cover object-top">
+                            </a>
+                        </div>
+
+                        <div class="lg:col-span-5">
+                            <p class="font-mono text-xs uppercase tracking-[0.16em] text-brand-300">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }} — {{ $project['industry'] }}</p>
+                            <h3 class="mt-3 text-3xl font-bold sm:text-4xl"><a href="{{ route('portfolio.show', $project['slug']) }}" class="transition hover:text-brand-300">{{ $project['title'] }}</a></h3>
+                            <p class="mt-4 leading-relaxed text-muted">{{ $project['summary'] }}</p>
+                            <ul class="mt-5 space-y-2">
+                                @foreach ($project['highlights'] as $highlight)
+                                    <li class="flex gap-3 text-[15px] text-[#D5DAE2]"><x-icon name="check" class="mt-0.5 h-[18px] w-[18px] text-brand-400" /> {{ $highlight }}</li>
+                                @endforeach
+                            </ul>
+                            <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+                                <a href="{{ route('portfolio.show', $project['slug']) }}" class="btn-primary !px-5 !py-3">Case study <x-icon name="arrow-right" class="h-4 w-4" /></a>
+                                <a href="{{ $project['url'] }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-semibold text-[#D5DAE2] transition hover:text-white" data-track="project_visit" data-track-location="{{ $project['title'] }}">
+                                    Live site <x-icon name="arrow-up-right" class="h-4 w-4" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
                 @endforeach
-            </dl>
+            </div>
         </div>
     </section>
 
@@ -100,8 +168,8 @@
 
             <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                 @foreach (config('portfolio.services') as $service)
-                    <a href="{{ route('services.show', $service['slug']) }}" class="card group p-7 transition hover:-translate-y-1 hover:border-brand-500/40" data-reveal>
-                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                    <a href="{{ route('services.show', $service['slug']) }}" class="card group p-7 transition hover:-translate-y-1 hover:border-brand-400/40" data-reveal>
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-400/10 text-brand-300">
                             <x-icon :name="$service['icon']" class="h-6 w-6" />
                         </span>
                         <h3 class="mt-6 text-xl font-semibold">{{ $service['title'] }}</h3>
@@ -125,20 +193,32 @@
         </div>
     </section>
 
-    {{-- Selected work --}}
+    {{-- Comparison --}}
     <section class="py-20 sm:py-28">
         <div class="container">
-            <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                <x-section-heading eyebrow="Selected work" title="Real websites for real businesses">
-                    A few recent projects — every one is live, so you can click through and try them yourself.
-                </x-section-heading>
-                <a href="{{ route('portfolio') }}" class="btn-ghost shrink-0 self-start md:self-auto" data-reveal>View all projects <x-icon name="arrow-right" class="h-4 w-4" /></a>
-            </div>
+            <x-section-heading eyebrow="Why me" title="What changes when you hire the developer directly" center />
 
-            <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                @foreach ($featured as $project)
-                    @include('partials.project-card', ['project' => $project])
-                @endforeach
+            <div class="card mt-14 overflow-x-auto" data-reveal>
+                <table class="w-full min-w-[680px] text-left">
+                    <thead>
+                        <tr class="border-b border-white/[0.08]">
+                            <th scope="col" class="p-5 text-sm font-medium text-muted sm:p-6"><span class="sr-only">Compare</span></th>
+                            <th scope="col" class="bg-brand-400/[0.07] p-5 font-display font-semibold text-brand-200 sm:p-6">Working with me</th>
+                            <th scope="col" class="p-5 font-display font-semibold text-white/70 sm:p-6">Typical agency</th>
+                            <th scope="col" class="p-5 font-display font-semibold text-white/70 sm:p-6">DIY website builder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (config('portfolio.comparison') as $row)
+                            <tr class="border-b border-white/[0.06] last:border-0">
+                                <th scope="row" class="p-5 text-[15px] font-medium text-white sm:p-6">{{ $row['label'] }}</th>
+                                <td class="bg-brand-400/[0.07] p-5 text-[15px] text-[#E9ECF1] sm:p-6">{{ $row['me'] }}</td>
+                                <td class="p-5 text-[15px] text-muted sm:p-6">{{ $row['agency'] }}</td>
+                                <td class="p-5 text-[15px] text-muted sm:p-6">{{ $row['diy'] }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -147,49 +227,53 @@
 
     @include('partials.testimonials')
 
+    @include('partials.quote-builder')
+
     {{-- About teaser --}}
     <section class="py-20 sm:py-28">
-        <div class="container grid items-center gap-12 lg:grid-cols-2">
-            <div class="card relative overflow-hidden p-8 sm:p-10" data-reveal>
-                <p class="eyebrow">Why work with me</p>
-                <ul class="mt-6 space-y-6">
-                    <li class="flex gap-4">
-                        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300"><x-icon name="chat" /></span>
-                        <div>
-                            <h3 class="text-lg font-semibold">You talk directly to the developer</h3>
-                            <p class="mt-1 text-muted">No account managers or agencies in between — fast answers and no lost details.</p>
-                        </div>
-                    </li>
-                    <li class="flex gap-4">
-                        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300"><x-icon name="zap" /></span>
-                        <div>
-                            <h3 class="text-lg font-semibold">Built for speed and enquiries</h3>
-                            <p class="mt-1 text-muted">Clean code, mobile-first layouts and clear calls to action that help visitors become customers.</p>
-                        </div>
-                    </li>
-                    <li class="flex gap-4">
-                        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300"><x-icon name="shield" /></span>
-                        <div>
-                            <h3 class="text-lg font-semibold">Support after launch</h3>
-                            <p class="mt-1 text-muted">I don't disappear after handover — fixes, updates and new features when you need them.</p>
-                        </div>
-                    </li>
-                </ul>
+        <div class="container grid items-center gap-12 lg:grid-cols-12">
+            <div class="mx-auto w-full max-w-sm [perspective:1200px] lg:col-span-4 lg:max-w-none" data-reveal>
+                <img src="{{ asset(config('portfolio.photo')) }}" alt="Portrait of {{ config('portfolio.name') }}, Laravel and WordPress developer in Lahore" width="400" height="400" loading="lazy" class="tilt aspect-square w-full rounded-[32px] border border-white/10 object-cover shadow-2xl shadow-black/60" data-tilt>
             </div>
 
-            <div data-reveal>
-                <x-section-heading eyebrow="About me" title="Hi, I'm Abrar 👋">
-                    A full-stack developer from Lahore with {{ $years }}+ years of experience building websites and web apps for agencies and businesses abroad. I care about clean code, clear communication and results you can measure.
+            <div class="lg:col-span-7 lg:col-start-6" data-reveal>
+                <x-section-heading eyebrow="Who you'll work with" title="Hi, I'm Abrar.">
+                    A full-stack developer from Lahore with {{ $years }}+ years of experience building websites and web apps for businesses abroad. I care about clean code, clear communication and results you can measure.
                 </x-section-heading>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="{{ route('about') }}" class="btn-primary">More about me <x-icon name="arrow-right" class="h-4 w-4" /></a>
-                    <a href="{{ asset(config('portfolio.cv')) }}" class="btn-ghost" download data-track="cv_download" data-track-location="home_about">
-                        <x-icon name="download" class="h-4 w-4" /> Download CV
-                    </a>
-                </div>
+                <ul class="mt-7 grid gap-4 sm:grid-cols-3">
+                    <li class="flex gap-3 text-[15px] text-[#D5DAE2]"><x-icon name="chat" class="text-brand-300" /> You talk directly to the developer</li>
+                    <li class="flex gap-3 text-[15px] text-[#D5DAE2]"><x-icon name="zap" class="text-brand-300" /> Built for speed and enquiries</li>
+                    <li class="flex gap-3 text-[15px] text-[#D5DAE2]"><x-icon name="shield" class="text-brand-300" /> Support after launch</li>
+                </ul>
+                <a href="{{ route('about') }}" class="btn-ghost mt-8">More about me <x-icon name="arrow-right" class="h-4 w-4" /></a>
             </div>
         </div>
     </section>
 
     @include('partials.faq')
+
+    <script type="application/ld+json">
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'ProfessionalService',
+            '@id' => url('/') . '#business',
+            'name' => config('portfolio.brand') . ' — ' . config('portfolio.name'),
+            'description' => 'Freelance Laravel and WordPress development for businesses in the UAE, Canada, the USA, the UK and Pakistan.',
+            'url' => url('/'),
+            'image' => asset(config('portfolio.photo')),
+            'telephone' => config('portfolio.contact.phone_href'),
+            'email' => config('portfolio.contact.email'),
+            'address' => ['@type' => 'PostalAddress', 'addressLocality' => 'Lahore', 'addressRegion' => 'Punjab', 'addressCountry' => 'PK'],
+            'areaServed' => ['United Arab Emirates', 'Pakistan', 'Canada', 'United States', 'United Kingdom'],
+            'founder' => ['@id' => url('/') . '#person'],
+            'hasOfferCatalog' => [
+                '@type' => 'OfferCatalog',
+                'name' => 'Web development services',
+                'itemListElement' => collect(config('portfolio.services'))->map(fn ($service) => [
+                    '@type' => 'Offer',
+                    'itemOffered' => ['@type' => 'Service', 'name' => $service['title'], 'url' => route('services.show', $service['slug'])],
+                ])->all(),
+            ],
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
 @endsection
